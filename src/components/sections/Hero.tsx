@@ -6,7 +6,6 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <section id="hero" className="relative flex min-h-screen items-center justify-center px-6 overflow-hidden">
-      {/* Background image */}
       <Image
         src="/photos/hero-placeholder.jpg"
         alt="Barista preparing espresso at a mobile coffee cart"
@@ -14,52 +13,60 @@ export default function Hero() {
         className="object-cover sepia-[.3] brightness-[0.9]"
         priority
       />
-      {/* Dark overlay */}
       <div className="absolute inset-0 bg-espresso/60" />
 
       <div className="relative mx-auto max-w-3xl text-center">
+        {/* Logo wordmark */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-sm font-medium uppercase tracking-[0.15em] text-white/70"
+          className="text-3xl sm:text-4xl tracking-[-0.03em] lowercase leading-none"
+          style={{
+            fontFamily: "var(--font-plus-jakarta)",
+            fontWeight: 800,
+            fontStyle: "italic",
+            color: "transparent",
+            WebkitTextStroke: "1.5px #B07840",
+          }}
         >
-          Houston&apos;s Mobile Espresso Bar
+          caffeinated.
         </motion.p>
+
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="mt-6 text-5xl font-bold tracking-tight text-white sm:text-7xl"
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="mt-8 text-3xl sm:text-5xl font-bold tracking-tight text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.3)]"
         >
-          Great Coffee.
-          <br />
-          Zero Hassle.
+          Your next event,{" "}
+          <span className="hero-shimmer">elevated.</span>
         </motion.h1>
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-6 text-lg text-white/80 sm:text-xl max-w-xl mx-auto"
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-6 text-base text-white/70 sm:text-lg max-w-lg mx-auto drop-shadow-[0_2px_12px_rgba(0,0,0,0.2)]"
         >
-          We bring the full espresso bar to your corporate event, wedding, or private function.
-          You just pick a date.
+          Mobile espresso bar for corporate events, weddings, and private functions in Houston.
         </motion.p>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <a
             href="#contact"
-            className="inline-block rounded-full bg-accent px-8 py-4 text-base font-medium text-white hover:opacity-90 transition-opacity"
+            className="inline-block rounded-full bg-accent px-6 py-3 text-sm font-medium text-white hover:opacity-90 transition-opacity"
           >
             Get a Free Quote
           </a>
           <a
             href="#packages"
-            className="inline-block rounded-full border border-white/30 px-8 py-4 text-base font-medium text-white hover:bg-white/10 transition-colors"
+            className="inline-block rounded-full border border-white/30 px-6 py-3 text-sm font-medium text-white hover:bg-white/10 transition-colors"
           >
             See Packages
           </a>

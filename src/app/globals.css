@@ -23,3 +23,24 @@ body {
   color: var(--color-espresso);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
+
+.hero-shimmer {
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #C8773A 40%,
+    #ffffff 60%,
+    #C8773A 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 100% 0; }
+  50% { background-position: 0% 0; }
+  100% { background-position: 100% 0; }
+}

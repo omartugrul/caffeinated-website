@@ -29,6 +29,12 @@ const logoOptions = [
     gradient: "",
     italic: true,
   },
+  {
+    name: "Caramel Outline",
+    gradient: "",
+    italic: true,
+    outline: true,
+  },
 ];
 
 function applyLogoStyle(opt: (typeof logoOptions)[number]) {
@@ -40,8 +46,15 @@ function applyLogoStyle(opt: (typeof logoOptions)[number]) {
     const isFooter = el.id === "logo-footer";
 
     el.style.fontStyle = opt.italic ? "italic" : "normal";
+    el.style.webkitTextStroke = "";
 
-    if (opt.gradient) {
+    if (opt.outline && !isFooter) {
+      el.style.background = "none";
+      el.style.backgroundClip = "unset";
+      el.style.webkitBackgroundClip = "unset";
+      el.style.webkitTextFillColor = "transparent";
+      el.style.webkitTextStroke = "1.5px #B07840";
+    } else if (opt.gradient) {
       el.style.background = opt.gradient;
       el.style.backgroundClip = "text";
       el.style.webkitBackgroundClip = "text";
