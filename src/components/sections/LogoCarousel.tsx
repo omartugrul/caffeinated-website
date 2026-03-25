@@ -69,7 +69,7 @@ export default function LogoCarousel() {
                   alt={client.name}
                   width={isLarge ? 160 : 100}
                   height={isLarge ? 64 : 48}
-                  className="w-full h-full object-contain grayscale opacity-60"
+                  className="w-full h-full object-contain opacity-80 sepia-[.3] brightness-[0.8]"
                 />
               </div>
             );

@@ -7,7 +7,7 @@ const faqs = [
   {
     question: "How far in advance should I book?",
     answer:
-      "We recommend booking at least 2–3 weeks out, but we can sometimes accommodate shorter timelines. For peak season (October–December), book as early as possible — those dates fill up fast.",
+      "We recommend booking at least 2-3 weeks out, but we can sometimes accommodate shorter timelines. For peak season (October through December), book as early as possible. Those dates fill up fast.",
   },
   {
     question: "What's included in every package?",
@@ -22,7 +22,7 @@ const faqs = [
   {
     question: "Do you serve areas outside Houston?",
     answer:
-      "We cover the entire Houston metro area — including Katy, Sugar Land, The Woodlands, Pearland, Clear Lake, and everywhere in between. Travel is included in all packages. For events outside the metro, reach out and we'll make it work.",
+      "We cover the entire Houston metro area, including Katy, Sugar Land, The Woodlands, Pearland, Clear Lake, and everywhere in between. Travel is included in all packages. For events outside the metro, reach out and we'll make it work.",
   },
   {
     question: "How many drinks can you serve per hour?",
@@ -32,7 +32,7 @@ const faqs = [
   {
     question: "What if I'm not sure which package I need?",
     answer:
-      "Just tell us your event type, guest count, and date — we'll recommend the right package and put together a custom quote. No pressure, no upselling. We want to find the right fit.",
+      "Just tell us your event type, guest count, and date. We'll recommend the right package and put together a custom quote. No pressure, no upselling. We want to find the right fit.",
   },
 ];
 

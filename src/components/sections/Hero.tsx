@@ -8,14 +8,14 @@ export default function Hero() {
     <section id="hero" className="relative flex min-h-screen items-center justify-center px-6 overflow-hidden">
       {/* Background image */}
       <Image
-        src="/photos/event-cart-customers.jpeg"
-        alt="Caffeinated espresso cart at an event"
+        src="/photos/hero-placeholder.jpg"
+        alt="Barista preparing espresso at a mobile coffee cart"
         fill
         className="object-cover"
         priority
       />
-      {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-espresso/70" />
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-espresso/60" />
 
       <div className="relative mx-auto max-w-3xl text-center">
         <motion.p

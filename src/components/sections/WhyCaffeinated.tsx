@@ -6,7 +6,7 @@ const reasons = [
   {
     title: "You Look Like a Hero",
     description:
-      "The person who booked us always gets the credit. We make your team, your clients, or your guests feel taken care of — and you look great for making it happen.",
+      "The person who booked us always gets the credit. We make your team, your clients, or your guests feel taken care of. And you look great for making it happen.",
   },
   {
     title: "We Bring Everything",

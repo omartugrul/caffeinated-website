@@ -17,7 +17,7 @@ const testimonials = [
   },
   {
     quote:
-      "I've booked a lot of vendors for corporate events. Caffeinated was the easiest experience I've had — from quote to day-of, everything was seamless.",
+      "I've booked a lot of vendors for corporate events. Caffeinated was the easiest experience I've had. From quote to day-of, everything was seamless.",
     author: "Marcus T.",
     role: "Event Coordinator",
   },
