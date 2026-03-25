@@ -6,7 +6,6 @@ import {
   LogoCarousel,
   HowItWorks,
   Packages,
-  WhyCaffeinated,
   About,
   Gallery,
   Testimonials,
@@ -23,7 +22,6 @@ export default function Home() {
         <LogoCarousel />
         <HowItWorks />
         <Packages />
-        <WhyCaffeinated />
         <About />
         <Gallery />
         <Testimonials />

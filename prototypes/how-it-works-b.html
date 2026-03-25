@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How It Works - Option B: Vertical Timeline with Progress Line</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #F9F6F1;
+      color: #2D1B14;
+    }
+
+    .spacer { height: 60vh; background: #F9F6F1; }
+
+    section {
+      padding: 100px 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: rgba(45, 27, 20, 0.5);
+      font-size: 1rem;
+      margin-bottom: 72px;
+    }
+
+    .timeline {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* The vertical progress line */
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 40px;
+      bottom: 40px;
+      width: 2px;
+      background: rgba(45, 27, 20, 0.08);
+    }
+
+    .timeline-progress {
+      position: absolute;
+      left: 19px;
+      top: 40px;
+      width: 2px;
+      height: 0;
+      background: #2D1B14;
+      transition: height 0.6s ease;
+    }
+
+    .step {
+      display: flex;
+      gap: 24px;
+      padding: 36px 0;
+      opacity: 0.25;
+      transition: opacity 0.5s ease;
+      position: relative;
+    }
+
+    .step.active {
+      opacity: 1;
+    }
+
+    .step-marker {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.95rem;
+      background: rgba(45, 27, 20, 0.06);
+      color: rgba(45, 27, 20, 0.3);
+      transition: all 0.5s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    .step.active .step-marker {
+      background: #2D1B14;
+      color: #F9F6F1;
+      box-shadow: 0 0 0 6px rgba(45, 27, 20, 0.08);
+    }
+
+    .step-body {
+      padding-top: 6px;
+    }
+
+    .step-body h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .step-body p {
+      color: rgba(45, 27, 20, 0.55);
+      line-height: 1.65;
+      font-size: 0.95rem;
+    }
+
+    .step.active .step-body p {
+      color: rgba(45, 27, 20, 0.7);
+    }
+
+    /* Tags on step 1 */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .tag {
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      border: 1px solid rgba(45, 27, 20, 0.15);
+      color: rgba(45, 27, 20, 0.6);
+      transition: all 0.4s ease;
+    }
+
+    .step.active .tag {
+      border-color: rgba(45, 27, 20, 0.25);
+      color: rgba(45, 27, 20, 0.75);
+    }
+
+    /* Image below timeline */
+    .feature-image {
+      margin-top: 64px;
+      border-radius: 16px;
+      overflow: hidden;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .feature-image img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+    }
+
+    .label {
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      background: #2D1B14;
+      color: #F9F6F1;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      z-index: 100;
+    }
+  </style>
+</head>
+<body>
+  <div class="label">Option B: Vertical Timeline + Progress Line</div>
+  <div class="spacer"></div>
+
+  <section>
+    <h2>How It Works</h2>
+    <p class="subtitle">Three steps. That's it.</p>
+
+    <div class="timeline">
+      <div class="timeline-progress"></div>
+
+      <div class="step" data-step="1">
+        <div class="step-marker">1</div>
+        <div class="step-body">
+          <h3>Pick Your Package</h3>
+          <p>Choose the tier that fits your event size and vibe. Want a custom drink menu or branded cups? We'll make it happen.</p>
+          <div class="tags">
+            <span class="tag">Weddings</span>
+            <span class="tag">Corporate</span>
+            <span class="tag">Birthdays</span>
+            <span class="tag">Pop-ups</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="step" data-step="2">
+        <div class="step-marker">2</div>
+        <div class="step-body">
+          <h3>Share the Details</h3>
+          <p>Date, location, guest count. That's all we need. We'll send you a custom quote within hours.</p>
+        </div>
+      </div>
+
+      <div class="step" data-step="3">
+        <div class="step-marker">3</div>
+        <div class="step-body">
+          <h3>Show Up and Be the Hero</h3>
+          <p>We bring the cart, the barista, the beans, and handle all setup and teardown. You just enjoy the event and take the credit.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-image">
+      <img src="../public/photos/team-with-cart.jpeg" alt="Caffeinated team with espresso cart" />
+    </div>
+  </section>
+
+  <div class="spacer"></div>
+
+  <script>
+    const steps = document.querySelectorAll('.step');
+    const progressBar = document.querySelector('.timeline-progress');
+    const timeline = document.querySelector('.timeline');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        } else {
+          entry.target.classList.remove('active');
+        }
+      });
+
+      // Update progress line
+      const activeSteps = document.querySelectorAll('.step.active');
+      if (activeSteps.length > 0) {
+        const lastActive = activeSteps[activeSteps.length - 1];
+        const timelineRect = timeline.getBoundingClientRect();
+        const stepRect = lastActive.getBoundingClientRect();
+        const progress = (stepRect.top - timelineRect.top) + (stepRect.height / 2);
+        progressBar.style.height = Math.max(0, progress) + 'px';
+      } else {
+        progressBar.style.height = '0px';
+      }
+    }, {
+      threshold: 0.6,
+      rootMargin: '-20% 0px -20% 0px'
+    });
+
+    steps.forEach(step => observer.observe(step));
+  </script>
+</body>
+</html>
