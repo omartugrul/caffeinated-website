@@ -62,12 +62,12 @@ export default function Packages() {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className={`relative rounded-2xl border p-8 flex flex-col ${
                 pkg.highlighted
-                  ? "border-espresso bg-espresso text-white"
+                  ? "border-espresso/10 bg-espresso text-white"
                   : "border-espresso/10 bg-cream text-espresso"
               }`}
             >
               {pkg.highlighted && (
-                <span className="absolute -top-3 right-6 rounded-full bg-accent px-4 py-1 text-xs font-semibold text-white">
+                <span className="absolute -top-3 right-6 rounded-full bg-cream border border-espresso/20 px-4 py-1 text-xs font-semibold text-espresso">
                   Most Popular
                 </span>
               )}
@@ -92,7 +92,7 @@ export default function Packages() {
                 href="#contact"
                 className={`mt-8 block rounded-full py-3 text-center text-sm font-medium transition-opacity hover:opacity-90 ${
                   pkg.highlighted
-                    ? "bg-caramel text-white"
+                    ? "bg-cream text-espresso border border-espresso/20"
                     : "bg-accent text-white"
                 }`}
               >

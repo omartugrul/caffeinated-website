@@ -62,13 +62,7 @@ export default function Hero() {
             href="#contact"
             className="inline-block rounded-full bg-accent px-6 py-3 text-sm font-medium text-white hover:opacity-90 transition-opacity"
           >
-            Get a Free Quote
-          </a>
-          <a
-            href="#packages"
-            className="inline-block rounded-full border border-white/30 px-6 py-3 text-sm font-medium text-white hover:bg-white/10 transition-colors"
-          >
-            See Packages
+            Book Your Event
           </a>
         </motion.div>
       </div>
