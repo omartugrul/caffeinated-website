@@ -1,6 +1,7 @@
 export { default as Hero } from "./Hero";
 export { default as LogoCarousel } from "./LogoCarousel";
 export { default as HowItWorks } from "./HowItWorks";
+export { default as Menu } from "./Menu";
 export { default as Packages } from "./Packages";
 export { default as About } from "./About";
 export { default as Gallery } from "./Gallery";

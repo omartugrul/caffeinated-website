@@ -44,7 +44,7 @@ export default function Compare() {
               className="rounded-full px-8 py-4 text-base font-medium text-white transition-opacity hover:opacity-90"
               style={{ backgroundColor: opt.hex }}
             >
-              Get a Quote
+              Book Your Event
             </button>
 
             {/* Button on dark bg */}
@@ -54,14 +54,14 @@ export default function Compare() {
                 className="rounded-full px-8 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90"
                 style={{ backgroundColor: opt.hex }}
               >
-                Get a Quote
+                Book Your Event
               </button>
               {/* Inverted for dark card */}
               <button
                 className="rounded-full px-8 py-3 text-sm font-medium bg-cream transition-opacity hover:opacity-90"
                 style={{ color: opt.hex }}
               >
-                Get a Quote
+                Book Your Event
               </button>
             </div>
 
@@ -80,7 +80,7 @@ export default function Compare() {
                 className="mt-6 w-full rounded-full py-3 text-sm font-medium text-white transition-opacity hover:opacity-90"
                 style={{ backgroundColor: opt.hex }}
               >
-                Get a Quote
+                Book Your Event
               </button>
             </div>
 
@@ -117,7 +117,7 @@ export default function Compare() {
                 className="rounded-full px-5 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90"
                 style={{ backgroundColor: opt.hex }}
               >
-                Get a Quote
+                Book Your Event
               </button>
             </div>
           </div>

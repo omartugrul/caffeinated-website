@@ -96,7 +96,7 @@ export default function Packages() {
                     : "bg-accent text-white"
                 }`}
               >
-                Get a Quote
+                Book Your Event
               </a>
             </motion.div>
           ))}

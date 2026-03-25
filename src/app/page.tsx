@@ -1,10 +1,10 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ColorSwitcher from "@/components/ColorSwitcher";
 import {
   Hero,
   LogoCarousel,
   HowItWorks,
+  Menu,
   Packages,
   About,
   Gallery,
@@ -21,6 +21,7 @@ export default function Home() {
         <Hero />
         <LogoCarousel />
         <HowItWorks />
+        <Menu />
         <Packages />
         <About />
         <Gallery />
@@ -29,7 +30,6 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-      <ColorSwitcher />
     </>
   );
 }

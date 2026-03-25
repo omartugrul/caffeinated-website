@@ -25,7 +25,7 @@ export default function Navbar() {
           href="#contact"
           className="rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white hover:opacity-90 transition-opacity"
         >
-          Get a Quote
+          Book Your Event
         </a>
       </div>
     </nav>
