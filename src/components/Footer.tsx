@@ -4,6 +4,7 @@ export default function Footer() {
       <div className="mx-auto max-w-5xl">
         <div className="flex flex-col items-center gap-8 text-center">
           <p
+            id="logo-footer"
             className="text-[24px] tracking-[-0.03em] lowercase leading-none"
             style={{
               fontFamily: "var(--font-plus-jakarta)",

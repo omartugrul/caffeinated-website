@@ -6,12 +6,13 @@ export default function Navbar() {
       <div className="mx-auto max-w-7xl flex items-center justify-between px-6 py-4">
         <a
           href="#"
+          id="logo-nav"
           className="text-[28px] tracking-[-0.03em] lowercase leading-none"
           style={{
             fontFamily: "var(--font-plus-jakarta)",
             fontWeight: 800,
             fontStyle: "italic",
-            background: "linear-gradient(135deg, #C8773A 0%, #8B4513 40%, #1A1713 100%)",
+            background: "linear-gradient(to right, #C8773A 0%, #8B4513 40%, #1A1713 100%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",

@@ -11,7 +11,7 @@ const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",
   subsets: ["latin"],
   weight: ["800"],
-  style: ["italic"],
+  style: ["italic", "normal"],
 });
 
 export const metadata: Metadata = {
