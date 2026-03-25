@@ -19,7 +19,7 @@ export default function Contact() {
             Tell us about your event. We&apos;ll get back to you within a few hours with a custom quote.
           </p>
           <form className="mt-10 flex flex-col gap-4" onSubmit={(e) => e.preventDefault()}>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid gap-4 sm:grid-cols-2">
               <input
                 type="text"
                 placeholder="First name"
@@ -49,7 +49,7 @@ export default function Contact() {
               <option>Office Pop-Up</option>
               <option>Other</option>
             </select>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid gap-4 sm:grid-cols-2">
               <input
                 type="date"
                 className="rounded-lg border border-espresso/20 bg-white px-4 py-3 text-sm text-espresso/40 focus:border-accent focus:outline-none"

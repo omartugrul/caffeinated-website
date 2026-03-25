@@ -83,7 +83,7 @@ export default function Packages() {
                       pkg.highlighted ? "text-white/80" : "text-espresso/70"
                     }`}
                   >
-                    <span className={`mt-0.5 ${pkg.highlighted ? "text-accent" : "text-accent"}`}>✓</span>
+                    <span className={`mt-0.5 ${pkg.highlighted ? "text-caramel" : "text-accent"}`}>✓</span>
                     {feature}
                   </li>
                 ))}
@@ -92,7 +92,7 @@ export default function Packages() {
                 href="#contact"
                 className={`mt-8 block rounded-full py-3 text-center text-sm font-medium transition-opacity hover:opacity-90 ${
                   pkg.highlighted
-                    ? "bg-accent text-white"
+                    ? "bg-caramel text-white"
                     : "bg-accent text-white"
                 }`}
               >

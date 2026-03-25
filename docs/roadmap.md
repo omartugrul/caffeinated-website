@@ -16,6 +16,7 @@
 - [ ] Add sticky mobile CTA bar
 - [ ] SEO setup: JSON-LD LocalBusiness schema, meta tags, sitemap, robots.txt
 - [ ] Google Business Profile setup
+- [ ] Fix favicon — gradient doesn't match header logo exactly. Needs to be regenerated with correct gradient rendering
 - [ ] Deploy (Vercel or static export)
 
 ---

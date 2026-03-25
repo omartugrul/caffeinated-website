@@ -11,7 +11,7 @@ export default function Hero() {
         src="/photos/hero-placeholder.jpg"
         alt="Barista preparing espresso at a mobile coffee cart"
         fill
-        className="object-cover"
+        className="object-cover sepia-[.3] brightness-[0.9]"
         priority
       />
       {/* Dark overlay */}
