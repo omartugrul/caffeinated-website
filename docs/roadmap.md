@@ -14,9 +14,11 @@
 - [ ] Finalize package pricing and descriptions
 - [ ] Mobile-first responsive polish
 - [ ] Add sticky mobile CTA bar
-- [ ] SEO setup: JSON-LD LocalBusiness schema, meta tags, sitemap, robots.txt
+- [x] SEO setup: JSON-LD LocalBusiness schema, meta tags, sitemap, robots.txt
 - [ ] Google Business Profile setup
 - [ ] Fix favicon — gradient doesn't match header logo exactly. Needs to be regenerated with correct gradient rendering
+- [ ] Buy the domain
+- [ ] Set up Google Workspace for email
 - [ ] Deploy (Vercel or static export)
 
 ---
