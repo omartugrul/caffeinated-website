@@ -5,9 +5,9 @@
 Mobile espresso cart landing page in Houston, TX. Single-page, conversion-focused site driving event bookings.
 
 ## Project Docs
-- `concept.md` — Source of truth (business, packages, tech stack, GTM)
-- `brand-brief.md` — Brand and design direction
-- `seo-competitive-analysis.md` — SEO competitive research
+- `docs/concept.md` — Source of truth (business, packages, tech stack, GTM)
+- `docs/brand-brief.md` — Brand and design direction
+- `docs/seo-competitive-analysis.md` — SEO competitive research
 - `docs/decisions.md` — Design decisions, research findings, and rationale
 - `docs/roadmap.md` — Phased roadmap (PostHog, Attio, Clay, content flywheel, etc.)
 
@@ -25,7 +25,24 @@ Mobile espresso cart landing page in Houston, TX. Single-page, conversion-focuse
 - `'use client'` on components using Framer Motion, useState, or browser APIs
 - Anchor navigation with smooth scroll to section IDs
 - Mobile-first responsive: `mobile-value md:desktop-value`
-- SEO metadata and JSON-LD in `app/layout.tsx`
+
+## SEO Setup
+- **Domain placeholder**: `siteUrl` in `layout.tsx`, `sitemap.ts`, and `robots.ts` all use `"https://caffeinated.com"` — update all three when the real domain is purchased.
+- **Metadata + Open Graph + Twitter cards**: Defined in `app/layout.tsx` via Next.js `Metadata` export.
+- **JSON-LD LocalBusiness schema**: Rendered as `<script type="application/ld+json">` in `app/layout.tsx`. Update `telephone` field when available.
+- **JSON-LD FAQPage schema**: Rendered in `app/page.tsx`, auto-generated from `content/faq.ts`. Adding/editing FAQ questions in the content file updates both the UI and structured data.
+- **Sitemap**: `app/sitemap.ts` — add new routes here as suburb landing pages are built.
+- **Robots**: `app/robots.ts` — simple allow-all config pointing to the sitemap.
+- **Target keywords**: Listed in `metadata.keywords` in `layout.tsx` and detailed in `docs/seo-competitive-analysis.md`.
+
+### SEO Maintenance Rules
+When making changes, keep these in sync:
+- **Adding/editing FAQ items**: Edit `content/faq.ts` only. The FAQ component and FAQPage JSON-LD both read from it automatically.
+- **Adding new pages** (e.g. suburb landing pages): Add the route to `app/sitemap.ts`. Include relevant target keywords in the page's metadata.
+- **Changing the business name, description, or service area**: Update in three places: `metadata` export in `layout.tsx`, the `jsonLd` object in `layout.tsx`, and Open Graph fields in `layout.tsx`.
+- **Changing the domain**: Find-and-replace `"https://caffeinated.com"` across `layout.tsx`, `sitemap.ts`, and `robots.ts`.
+- **Adding service types or packages**: Add relevant keywords to `metadata.keywords` in `layout.tsx` and to `knowsAbout` in the `jsonLd` object.
+- **Adding images**: Always include descriptive alt text. If an OG image is created, add it to `metadata.openGraph.images` and `metadata.twitter.images` in `layout.tsx`.
 
 ## Commit Messages
 - Plain and concise. No emojis, no markdown, no Claude attribution.
