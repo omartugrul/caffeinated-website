@@ -67,11 +67,11 @@ export default function Menu() {
           {canScrollLeft && (
             <button
               onClick={() => scroll("left")}
-              className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-espresso text-cream flex items-center justify-center shadow-lg hover:bg-espresso/80 transition-colors cursor-pointer hidden sm:flex"
+              className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 text-espresso/30 hover:text-espresso/60 transition-colors cursor-pointer hidden sm:flex"
               aria-label="Scroll left"
             >
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M12 5L7 10L12 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M15 6L9 12L15 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
           )}
@@ -80,11 +80,11 @@ export default function Menu() {
           {canScrollRight && (
             <button
               onClick={() => scroll("right")}
-              className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-espresso text-cream flex items-center justify-center shadow-lg hover:bg-espresso/80 transition-colors cursor-pointer hidden sm:flex"
+              className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 text-espresso/30 hover:text-espresso/60 transition-colors cursor-pointer hidden sm:flex"
               aria-label="Scroll right"
             >
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M8 5L13 10L8 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M9 6L15 12L9 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
           )}

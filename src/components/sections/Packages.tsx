@@ -13,7 +13,7 @@ export default function Packages() {
         <p className="mt-4 text-center text-espresso/50 max-w-lg mx-auto">
           Straightforward pricing. Custom packages available for recurring bookings.
         </p>
-        <div className="mt-16 grid gap-8 md:grid-cols-3 md:items-center">
+        <div className="mt-16 grid gap-8 md:grid-cols-3 md:items-stretch">
           {packages.map((pkg, i) => (
             <motion.div
               key={pkg.name}
