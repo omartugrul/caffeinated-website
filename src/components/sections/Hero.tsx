@@ -49,7 +49,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-6 text-base text-white/70 sm:text-lg max-w-lg mx-auto drop-shadow-[0_2px_12px_rgba(0,0,0,0.2)]"
         >
-          Mobile espresso bar for corporate events, weddings, and private functions in Houston.
+          We bring the coffee bar to your event. You just pick a date.
         </motion.p>
 
         <motion.div

@@ -23,7 +23,7 @@ export default function Navbar() {
 
         <a
           href="#contact"
-          className="rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white hover:opacity-90 transition-opacity"
+          className="rounded-full bg-accent px-4 py-2 text-xs font-medium text-white hover:opacity-90 transition-opacity md:px-5 md:py-2.5 md:text-sm"
         >
           Book Your Event
         </a>

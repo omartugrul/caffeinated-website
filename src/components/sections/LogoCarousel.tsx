@@ -24,7 +24,7 @@ export default function LogoCarousel() {
         viewport={{ once: true }}
         className="text-center text-espresso/50 text-sm font-medium mb-8 uppercase tracking-wider px-4"
       >
-        Caffeinated &amp; sister brands are trusted by
+        Our team has served
       </motion.p>
 
       <div className="flex flex-col items-center gap-8 px-6 md:flex-row md:justify-center md:gap-12 md:px-6">

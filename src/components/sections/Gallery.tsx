@@ -17,7 +17,7 @@ export default function Gallery() {
     <section id="gallery" className="py-24 px-6 bg-cream">
       <div className="mx-auto max-w-5xl">
         <h2 className="text-center text-3xl font-bold tracking-tight text-espresso sm:text-4xl">
-          In Action
+          From Our Events
         </h2>
         <p className="mt-4 text-center text-espresso/50 max-w-lg mx-auto">
           From office lobbies to rooftop weddings. Here&apos;s what it looks like when we show up.

@@ -32,6 +32,6 @@ export const faqs: FAQItem[] = [
   {
     question: "What if I'm not sure which package I need?",
     answer:
-      "Just tell us your event type, guest count, and date. We'll recommend the right package and put together a custom quote. No pressure, no upselling. We want to find the right fit.",
+      "Just tell us your event type, guest count, and date. We'll recommend the right package and put together a custom quote.",
   },
 ];
