@@ -35,6 +35,8 @@ src/
     globals.css       # Tailwind imports, custom theme colors, global styles
     sitemap.ts        # Auto-generated sitemap.xml
     robots.ts         # Auto-generated robots.txt
+    opengraph-image.tsx  # Auto-generated OG image (JSX -> PNG at build time)
+    twitter-image.tsx    # Re-exports OG image for Twitter cards
     icon.png          # Favicon
     compare/          # Internal comparison page (not linked from main site)
   components/
@@ -51,7 +53,7 @@ src/
       Gallery.tsx       # Event photo grid
       Testimonials.tsx  # Client testimonials
       FAQ.tsx           # Expandable FAQ accordion
-      Contact.tsx       # Contact/quote form
+      Contact.tsx       # Multi-step quote form (react-hook-form, 2 steps + confirmation)
   content/
     menu.ts            # Drink menu data (names, ingredients, images)
     faq.ts             # FAQ questions and answers (feeds both UI and JSON-LD schema)
@@ -146,14 +148,15 @@ The site URL is currently set to `https://caffeinated.com` as a placeholder. Whe
 - **Adding new pages** (e.g. suburb landing pages): Add the route to `sitemap.ts` and include relevant keywords in the page's metadata.
 - **Changing business info**: Update in `metadata` export, `jsonLd` object, and Open Graph fields -- all in `layout.tsx`.
 - **Adding service types**: Add keywords to `metadata.keywords` and `jsonLd.knowsAbout` in `layout.tsx`.
-- **Adding images**: Always include descriptive alt text. When an OG image is created, add it to `openGraph.images` and `twitter.images` in `layout.tsx`.
+- **Adding images**: Always include descriptive alt text.
+- **OG image**: Generated via `app/opengraph-image.tsx` using `ImageResponse` from `next/og`. Twitter card reuses it via `app/twitter-image.tsx`. Edit `opengraph-image.tsx` to change -- file convention auto-injects into meta tags.
 
 ### Not Yet Implemented
 
 - Google Business Profile (offline task, not code)
 - Houston suburb/neighborhood landing pages (The Woodlands, Katy, Sugar Land, etc.)
 - Blog / content flywheel (event recaps)
-- OG share image
+- FAQ expansion targeting "People Also Ask" queries (e.g. "How much does coffee catering cost in Houston?")
 
 ## Imagery
 

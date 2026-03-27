@@ -7,8 +7,9 @@
 ## Phase 1: Website Launch
 
 - [ ] Finalize section layout and content (Option B structure)
-- [ ] Build multi-step contact/quote form (embedded, seamless)
-- [ ] Decide on form service: headless (React Hook Form + Formspree/Resend) vs Fillout vs Tally Pro
+- [x] Build multi-step contact/quote form (embedded, seamless)
+- [x] Decide on form service: headless (React Hook Form + Formspree/Resend) vs Fillout vs Tally Pro
+  - Chose React Hook Form. Form submission backend (Attio + Resend) still TODO in Phase 2.
 - [ ] Source bobawali photos and adapt via Gemini/Nanobanana for coffee context
 - [ ] Write final copy for all sections
 - [ ] Finalize package pricing and descriptions
