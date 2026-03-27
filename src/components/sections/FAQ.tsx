@@ -11,14 +11,16 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
     <div className="border-b border-espresso/10">
       <button
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
         className="flex w-full items-center justify-between py-5 text-left"
       >
         <span className="text-base font-medium text-espresso pr-4">{question}</span>
-        <span className="ml-4 text-accent text-lg flex-shrink-0">{open ? "−" : "+"}</span>
+        <span className="ml-4 text-accent text-lg flex-shrink-0" aria-hidden="true">{open ? "−" : "+"}</span>
       </button>
       <AnimatePresence>
         {open && (
           <motion.div
+            role="region"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
