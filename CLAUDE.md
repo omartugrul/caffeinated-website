@@ -42,7 +42,8 @@ When making changes, keep these in sync:
 - **Changing the business name, description, or service area**: Update in three places: `metadata` export in `layout.tsx`, the `jsonLd` object in `layout.tsx`, and Open Graph fields in `layout.tsx`.
 - **Changing the domain**: Find-and-replace `"https://caffeinated.com"` across `layout.tsx`, `sitemap.ts`, and `robots.ts`.
 - **Adding service types or packages**: Add relevant keywords to `metadata.keywords` in `layout.tsx` and to `knowsAbout` in the `jsonLd` object.
-- **Adding images**: Always include descriptive alt text. If an OG image is created, add it to `metadata.openGraph.images` and `metadata.twitter.images` in `layout.tsx`.
+- **Adding images**: Always include descriptive alt text.
+- **OG image**: Generated via `app/opengraph-image.tsx` using `ImageResponse` from `next/og`. Twitter card reuses it via `app/twitter-image.tsx`. To change the OG image, edit `opengraph-image.tsx` -- no metadata changes needed (file convention auto-injects).
 
 ## Commit Messages
 - Plain and concise. No emojis, no markdown, no Claude attribution.
