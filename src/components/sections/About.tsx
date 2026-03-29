@@ -1,11 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Section, SectionHeading } from "@/components/ui";
 
 export default function About() {
   return (
-    <section id="about" className="py-24 px-6 bg-white">
-      <div className="mx-auto max-w-3xl">
+    <Section id="about" bg="white" maxWidth="3xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -13,9 +13,7 @@ export default function About() {
           transition={{ duration: 0.5 }}
           className="text-center"
         >
-          <h2 className="text-3xl font-bold tracking-tight text-espresso sm:text-4xl">
-            About Us
-          </h2>
+          <SectionHeading>About Us</SectionHeading>
           <p className="mt-6 text-lg leading-relaxed text-espresso/60">
             Caffeinated is a mobile espresso bar based in Houston, Texas. We cater corporate events,
             weddings, and private functions across the metro area. We started because we believed
@@ -26,7 +24,6 @@ export default function About() {
             Every detail is handled. Every event runs smoothly. And every guest gets a great cup of coffee.
           </p>
         </motion.div>
-      </div>
-    </section>
+    </Section>
   );
 }

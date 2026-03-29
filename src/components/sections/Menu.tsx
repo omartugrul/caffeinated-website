@@ -4,6 +4,7 @@ import { useRef, useState, useCallback, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { drinks } from "@/content/menu";
+import { Section, SectionHeading } from "@/components/ui";
 
 export default function Menu() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -41,26 +42,17 @@ export default function Menu() {
   };
 
   return (
-    <section id="menu" className="py-24 px-6 bg-white">
-      <div className="mx-auto max-w-5xl">
-        <motion.h2
+    <Section id="menu" bg="white">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center text-3xl font-bold tracking-tight text-espresso sm:text-4xl"
         >
-          The Menu
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="mt-4 text-center text-espresso/50 max-w-lg mx-auto"
-        >
-          Craft drinks made fresh at your event. Here are a few crowd favorites.
-        </motion.p>
+          <SectionHeading subtitle="Craft drinks made fresh at your event. Here are a few crowd favorites.">
+            The Menu
+          </SectionHeading>
+        </motion.div>
 
         <div className="relative mt-16">
           {/* Left arrow */}
@@ -124,7 +116,6 @@ export default function Menu() {
             ))}
           </div>
         </div>
-      </div>
-    </section>
+    </Section>
   );
 }

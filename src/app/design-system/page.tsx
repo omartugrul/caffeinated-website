@@ -12,6 +12,7 @@ import {
   Contact,
 } from "@/components/sections";
 import Testimonials from "@/components/sections/Testimonials";
+import { Button, SectionHeading, Section, Input, Logo } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Design System | Caffeinated (Internal)",
@@ -71,6 +72,8 @@ const sections = [
   { id: "colors", label: "Colors" },
   { id: "typography", label: "Typography" },
   { id: "buttons", label: "Buttons" },
+  { id: "inputs", label: "Inputs" },
+  { id: "logo-variants", label: "Logo" },
   { id: "shadows-effects", label: "Shadows & Effects" },
   { id: "comp-navbar", label: "Navbar" },
   { id: "comp-hero", label: "Hero" },
@@ -91,21 +94,7 @@ export default function DesignSystemPage() {
       {/* ───────── Header ───────── */}
       <header className="border-b border-espresso/10 bg-white px-6 py-12">
         <div className="mx-auto max-w-5xl">
-          <p
-            className="text-2xl tracking-[-0.03em] lowercase leading-none"
-            style={{
-              fontFamily: "var(--font-plus-jakarta)",
-              fontWeight: 800,
-              fontStyle: "italic",
-              background:
-                "linear-gradient(to right, #C8773A 0%, #8B4513 40%, #1A1713 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}
-          >
-            caffeinated.
-          </p>
+          <Logo variant="gradient" size="md" />
           <h1 className="mt-4 text-3xl font-bold tracking-tight text-espresso sm:text-4xl">
             Design System
           </h1>
@@ -195,21 +184,7 @@ export default function DesignSystemPage() {
               <p className="text-xs font-medium uppercase tracking-wider text-espresso/40 mb-3">
                 Logo — Plus Jakarta Sans 800 Italic
               </p>
-              <p
-                className="text-2xl tracking-[-0.03em] lowercase"
-                style={{
-                  fontFamily: "var(--font-plus-jakarta)",
-                  fontWeight: 800,
-                  fontStyle: "italic",
-                  background:
-                    "linear-gradient(to right, #C8773A 0%, #8B4513 40%, #1A1713 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                caffeinated.
-              </p>
+              <Logo variant="gradient" size="lg" />
               <p className="mt-2 text-xs text-espresso/40 font-mono">
                 var(--font-plus-jakarta) / weight 800 / italic
               </p>
@@ -231,11 +206,11 @@ export default function DesignSystemPage() {
             </div>
             <div className="border-t border-espresso/5 pt-6">
               <p className="text-xs text-espresso/40 font-mono mb-1">
-                text-3xl sm:text-4xl font-bold tracking-tight (Section heading)
+                SectionHeading component
               </p>
-              <p className="text-3xl sm:text-4xl font-bold tracking-tight text-espresso">
+              <SectionHeading subtitle="Subtitle text rendered by the SectionHeading component.">
                 Section Heading
-              </p>
+              </SectionHeading>
             </div>
             <div className="border-t border-espresso/5 pt-6">
               <p className="text-xs text-espresso/40 font-mono mb-1">
@@ -293,6 +268,9 @@ export default function DesignSystemPage() {
           <h2 className="text-2xl font-bold tracking-tight text-espresso">
             Buttons
           </h2>
+          <p className="mt-2 text-sm text-espresso/50">
+            Using the <code className="font-mono text-xs bg-espresso/5 px-1.5 py-0.5 rounded">Button</code> component from <code className="font-mono text-xs bg-espresso/5 px-1.5 py-0.5 rounded">components/ui/Button.tsx</code>
+          </p>
           <div className="mt-8 space-y-8">
             {/* On light bg */}
             <div className="rounded-xl border border-espresso/10 bg-white p-8 space-y-6">
@@ -301,44 +279,40 @@ export default function DesignSystemPage() {
               </p>
               <div className="flex flex-wrap items-center gap-4">
                 <div className="flex flex-col items-start gap-2">
-                  <a className="inline-block rounded-full bg-accent px-6 py-3 text-sm font-medium text-white hover:opacity-90 transition-opacity cursor-pointer">
-                    Book Your Event
-                  </a>
+                  <Button>Book Your Event</Button>
                   <p className="text-xs text-espresso/40 font-mono">
-                    Primary CTA (dark)
+                    variant=&quot;primary&quot; (default)
                   </p>
                 </div>
                 <div className="flex flex-col items-start gap-2">
-                  <a className="inline-block rounded-full bg-amber px-6 py-3 text-sm font-medium text-white hover:opacity-90 transition-opacity cursor-pointer">
-                    Get a Quote
-                  </a>
+                  <Button variant="amber">Get a Quote</Button>
                   <p className="text-xs text-espresso/40 font-mono">
-                    Primary CTA (amber)
+                    variant=&quot;amber&quot;
                   </p>
                 </div>
                 <div className="flex flex-col items-start gap-2">
-                  <button className="rounded-full border border-espresso/15 px-6 py-3.5 text-sm font-medium text-espresso/60 hover:text-espresso transition-colors cursor-pointer">
-                    Back
-                  </button>
+                  <Button variant="outline">Back</Button>
                   <p className="text-xs text-espresso/40 font-mono">
-                    Secondary / outline
+                    variant=&quot;outline&quot;
                   </p>
                 </div>
                 <div className="flex flex-col items-start gap-2">
-                  <a className="rounded-full bg-accent px-4 py-2 text-xs font-medium text-white hover:opacity-90 transition-opacity cursor-pointer">
-                    Book Your Event
-                  </a>
+                  <Button size="sm">Book Your Event</Button>
                   <p className="text-xs text-espresso/40 font-mono">
-                    Nav CTA (compact)
+                    size=&quot;sm&quot; (nav)
                   </p>
                 </div>
               </div>
               <div className="max-w-sm">
-                <a className="block rounded-full bg-accent py-3.5 text-center text-sm font-medium text-white hover:opacity-90 transition-opacity cursor-pointer">
-                  Continue
-                </a>
+                <Button size="full">Continue</Button>
                 <p className="mt-2 text-xs text-espresso/40 font-mono">
-                  Full-width CTA
+                  size=&quot;full&quot;
+                </p>
+              </div>
+              <div className="max-w-sm">
+                <Button variant="amber" size="full">Get a Quote</Button>
+                <p className="mt-2 text-xs text-espresso/40 font-mono">
+                  variant=&quot;amber&quot; size=&quot;full&quot;
                 </p>
               </div>
             </div>
@@ -350,21 +324,86 @@ export default function DesignSystemPage() {
               </p>
               <div className="flex flex-wrap items-center gap-4">
                 <div className="flex flex-col items-start gap-2">
-                  <a className="inline-block rounded-full bg-amber px-6 py-3 text-sm font-medium text-white hover:opacity-90 transition-opacity cursor-pointer">
-                    Book Your Event
-                  </a>
+                  <Button variant="amber">Book Your Event</Button>
                   <p className="text-xs text-white/40 font-mono">
-                    Primary CTA (amber)
+                    variant=&quot;amber&quot;
                   </p>
                 </div>
-                <div className="flex flex-col items-start gap-2">
-                  <a className="inline-block rounded-full bg-white px-6 py-3 text-sm font-medium text-espresso hover:opacity-90 transition-opacity cursor-pointer">
-                    Learn More
-                  </a>
-                  <p className="text-xs text-white/40 font-mono">
-                    Inverted CTA
-                  </p>
-                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ───────── Inputs ───────── */}
+        <section id="inputs" className="py-16 border-t border-espresso/10">
+          <h2 className="text-2xl font-bold tracking-tight text-espresso">
+            Form Inputs
+          </h2>
+          <p className="mt-2 text-sm text-espresso/50">
+            Using the <code className="font-mono text-xs bg-espresso/5 px-1.5 py-0.5 rounded">Input</code> component from <code className="font-mono text-xs bg-espresso/5 px-1.5 py-0.5 rounded">components/ui/Input.tsx</code>
+          </p>
+          <div className="mt-8 rounded-xl border border-espresso/10 bg-white p-8 space-y-6 max-w-md">
+            <Input label="Name" placeholder="Your name" />
+            <Input label="Email" type="email" placeholder="you@company.com" />
+            <Input label="Phone" optional type="tel" placeholder="For a faster response" />
+            <Input label="With error" placeholder="Bad input" error="This field is required" />
+            <Input label="Event date" type="date" />
+          </div>
+        </section>
+
+        {/* ───────── Logo Variants ───────── */}
+        <section id="logo-variants" className="py-16 border-t border-espresso/10">
+          <h2 className="text-2xl font-bold tracking-tight text-espresso">
+            Logo
+          </h2>
+          <p className="mt-2 text-sm text-espresso/50">
+            Using the <code className="font-mono text-xs bg-espresso/5 px-1.5 py-0.5 rounded">Logo</code> component from <code className="font-mono text-xs bg-espresso/5 px-1.5 py-0.5 rounded">components/ui/Logo.tsx</code>
+          </p>
+          <div className="mt-8 grid gap-6 sm:grid-cols-3">
+            <div className="rounded-xl border border-espresso/10 bg-white p-6">
+              <p className="text-xs font-medium uppercase tracking-wider text-espresso/40 mb-3">
+                Gradient (default)
+              </p>
+              <Logo variant="gradient" size="lg" />
+              <p className="mt-2 text-xs text-espresso/40 font-mono">
+                variant=&quot;gradient&quot;
+              </p>
+            </div>
+            <div className="rounded-xl border border-espresso/10 bg-espresso p-6">
+              <p className="text-xs font-medium uppercase tracking-wider text-white/40 mb-3">
+                Outline
+              </p>
+              <Logo variant="outline" size="lg" />
+              <p className="mt-2 text-xs text-white/40 font-mono">
+                variant=&quot;outline&quot;
+              </p>
+            </div>
+            <div className="rounded-xl border border-espresso/10 bg-espresso p-6">
+              <p className="text-xs font-medium uppercase tracking-wider text-white/40 mb-3">
+                White
+              </p>
+              <Logo variant="white" size="lg" />
+              <p className="mt-2 text-xs text-white/40 font-mono">
+                variant=&quot;white&quot;
+              </p>
+            </div>
+          </div>
+          <div className="mt-6 rounded-xl border border-espresso/10 bg-white p-6">
+            <p className="text-xs font-medium uppercase tracking-wider text-espresso/40 mb-4">
+              Sizes
+            </p>
+            <div className="flex items-end gap-8">
+              <div>
+                <Logo variant="gradient" size="sm" />
+                <p className="mt-1 text-xs text-espresso/40 font-mono">sm (24px)</p>
+              </div>
+              <div>
+                <Logo variant="gradient" size="md" />
+                <p className="mt-1 text-xs text-espresso/40 font-mono">md (28px)</p>
+              </div>
+              <div>
+                <Logo variant="gradient" size="lg" />
+                <p className="mt-1 text-xs text-espresso/40 font-mono">lg (text-3xl)</p>
               </div>
             </div>
           </div>
@@ -417,31 +456,6 @@ export default function DesignSystemPage() {
             Effects
           </h3>
           <div className="mt-4 grid gap-6 sm:grid-cols-2">
-            {/* Logo gradient */}
-            <div className="rounded-xl border border-espresso/10 bg-white p-6">
-              <p className="text-xs font-medium uppercase tracking-wider text-espresso/40 mb-3">
-                Logo Gradient
-              </p>
-              <p
-                className="text-3xl tracking-[-0.03em] lowercase"
-                style={{
-                  fontFamily: "var(--font-plus-jakarta)",
-                  fontWeight: 800,
-                  fontStyle: "italic",
-                  background:
-                    "linear-gradient(to right, #C8773A 0%, #8B4513 40%, #1A1713 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                caffeinated.
-              </p>
-              <p className="mt-2 text-xs text-espresso/40 font-mono">
-                linear-gradient(to right, #C8773A, #8B4513, #1A1713)
-              </p>
-            </div>
-
             {/* Hero shimmer */}
             <div className="rounded-xl border border-espresso/10 bg-espresso p-6">
               <p className="text-xs font-medium uppercase tracking-wider text-white/40 mb-3">
@@ -452,28 +466,6 @@ export default function DesignSystemPage() {
               </p>
               <p className="mt-2 text-xs text-white/40 font-mono">
                 .hero-shimmer class (CSS animation)
-              </p>
-            </div>
-
-            {/* Outlined text */}
-            <div className="rounded-xl border border-espresso/10 bg-espresso p-6">
-              <p className="text-xs font-medium uppercase tracking-wider text-white/40 mb-3">
-                Outlined Text
-              </p>
-              <p
-                className="text-3xl tracking-[-0.03em] lowercase"
-                style={{
-                  fontFamily: "var(--font-plus-jakarta)",
-                  fontWeight: 800,
-                  fontStyle: "italic",
-                  color: "transparent",
-                  WebkitTextStroke: "1.5px #B07840",
-                }}
-              >
-                caffeinated.
-              </p>
-              <p className="mt-2 text-xs text-white/40 font-mono">
-                WebkitTextStroke: 1.5px #B07840
               </p>
             </div>
 
@@ -525,10 +517,13 @@ export default function DesignSystemPage() {
             </div>
           </div>
 
-          {/* Spacing & Layout reference */}
+          {/* Section component demo */}
           <h3 className="mt-12 text-lg font-semibold text-espresso">
-            Spacing & Layout
+            Section Component
           </h3>
+          <p className="mt-2 text-sm text-espresso/50">
+            Using <code className="font-mono text-xs bg-espresso/5 px-1.5 py-0.5 rounded">Section</code> from <code className="font-mono text-xs bg-espresso/5 px-1.5 py-0.5 rounded">components/ui/Section.tsx</code>. Wraps content with consistent padding and max-width.
+          </p>
           <div className="mt-4 rounded-xl border border-espresso/10 bg-white p-6 text-sm text-espresso/70 space-y-3">
             <p>
               <span className="font-mono text-xs bg-espresso/5 px-1.5 py-0.5 rounded">
@@ -540,13 +535,13 @@ export default function DesignSystemPage() {
               <span className="font-mono text-xs bg-espresso/5 px-1.5 py-0.5 rounded">
                 max-w-5xl
               </span>{" "}
-              — Most sections (Packages, Gallery, Testimonials)
+              — Most sections (default)
             </p>
             <p>
               <span className="font-mono text-xs bg-espresso/5 px-1.5 py-0.5 rounded">
                 max-w-3xl
               </span>{" "}
-              — Hero content
+              — Hero content, About
             </p>
             <p>
               <span className="font-mono text-xs bg-espresso/5 px-1.5 py-0.5 rounded">
@@ -559,12 +554,6 @@ export default function DesignSystemPage() {
                 max-w-xl
               </span>{" "}
               — Contact form
-            </p>
-            <p>
-              <span className="font-mono text-xs bg-espresso/5 px-1.5 py-0.5 rounded">
-                py-24 px-6
-              </span>{" "}
-              — Standard section padding
             </p>
             <p>
               <span className="font-mono text-xs bg-espresso/5 px-1.5 py-0.5 rounded">

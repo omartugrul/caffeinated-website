@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { motion, AnimatePresence } from "framer-motion";
+import { Section, SectionHeading, Button, Input } from "@/components/ui";
 
 interface FormData {
   eventType: string;
@@ -98,28 +99,17 @@ export default function Contact() {
     }
   };
 
-  const inputClass = (field: keyof FormData) =>
-    `w-full rounded-lg border bg-white px-4 py-3 text-sm text-espresso placeholder:text-espresso/40 focus:outline-none transition-colors ${
-      errors[field]
-        ? "border-red-400 focus:border-red-400"
-        : "border-espresso/20 focus:border-amber"
-    }`;
-
   return (
-    <section id="contact" className="py-24 px-6 bg-white">
-      <div className="mx-auto max-w-xl">
+    <Section id="contact" bg="white" maxWidth="xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-center text-3xl font-bold tracking-tight text-espresso sm:text-4xl">
+          <SectionHeading subtitle="Tell us about your event. We respond within 2 hours with a custom quote.">
             Let&apos;s Plan Your Event
-          </h2>
-          <p className="mt-4 text-center text-espresso/60">
-            Tell us about your event. We respond within 2 hours with a custom quote.
-          </p>
+          </SectionHeading>
 
           {/* Progress bar */}
           {step < 2 && (
@@ -180,55 +170,42 @@ export default function Contact() {
                   </div>
 
                   <div className="grid gap-4 sm:grid-cols-2">
-                    <div>
-                      <label className="block text-sm font-medium text-espresso mb-1.5">
-                        Event date
-                      </label>
-                      <input
-                        type="date"
-                        min={getMinDate()}
-                        {...register("date", {
-                          required: "Please select a date",
-                          validate: (v) => {
-                            const selected = new Date(v);
-                            const min = new Date();
-                            min.setDate(min.getDate() + 2);
-                            return selected > min || "Date must be at least 3 days out";
-                          },
-                        })}
-                        className={inputClass("date")}
-                      />
-                      {errors.date && (
-                        <p className="mt-1 text-xs text-red-500">{errors.date.message}</p>
-                      )}
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-espresso mb-1.5">
-                        Guest count
-                      </label>
-                      <input
-                        type="number"
-                        placeholder="e.g. 75"
-                        {...register("guestCount", {
-                          required: "Please enter a guest count",
-                          min: { value: 1, message: "Must be at least 1" },
-                          max: { value: 10000, message: "Please contact us directly for 10,000+" },
-                        })}
-                        className={inputClass("guestCount")}
-                      />
-                      {errors.guestCount && (
-                        <p className="mt-1 text-xs text-red-500">{errors.guestCount.message}</p>
-                      )}
-                    </div>
+                    <Input
+                      label="Event date"
+                      type="date"
+                      min={getMinDate()}
+                      error={errors.date?.message}
+                      {...register("date", {
+                        required: "Please select a date",
+                        validate: (v) => {
+                          const selected = new Date(v);
+                          const min = new Date();
+                          min.setDate(min.getDate() + 2);
+                          return selected > min || "Date must be at least 3 days out";
+                        },
+                      })}
+                    />
+                    <Input
+                      label="Guest count"
+                      type="number"
+                      placeholder="e.g. 75"
+                      error={errors.guestCount?.message}
+                      {...register("guestCount", {
+                        required: "Please enter a guest count",
+                        min: { value: 1, message: "Must be at least 1" },
+                        max: { value: 10000, message: "Please contact us directly for 10,000+" },
+                      })}
+                    />
                   </div>
 
-                  <button
+                  <Button
                     type="button"
                     onClick={advanceToStep1}
-                    className="mt-2 rounded-full bg-accent py-3.5 text-sm font-medium text-white hover:opacity-90 transition-opacity cursor-pointer"
+                    size="full"
+                    className="mt-2"
                   >
                     Continue
-                  </button>
+                  </Button>
                 </motion.div>
               )}
 
@@ -247,80 +224,61 @@ export default function Contact() {
                     Almost there. Where should we send your quote?
                   </p>
 
-                  <div>
-                    <label className="block text-sm font-medium text-espresso mb-1.5">
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="Your name"
-                      {...register("name", {
-                        required: "Please enter your name",
-                        minLength: { value: 2, message: "Name is too short" },
-                      })}
-                      className={inputClass("name")}
-                    />
-                    {errors.name && (
-                      <p className="mt-1 text-xs text-red-500">{errors.name.message}</p>
-                    )}
-                  </div>
+                  <Input
+                    label="Name"
+                    type="text"
+                    placeholder="Your name"
+                    error={errors.name?.message}
+                    {...register("name", {
+                      required: "Please enter your name",
+                      minLength: { value: 2, message: "Name is too short" },
+                    })}
+                  />
 
-                  <div>
-                    <label className="block text-sm font-medium text-espresso mb-1.5">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      placeholder="you@company.com"
-                      {...register("email", {
-                        required: "Please enter your email",
-                        pattern: {
-                          value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                          message: "Please enter a valid email",
-                        },
-                      })}
-                      className={inputClass("email")}
-                    />
-                    {errors.email && (
-                      <p className="mt-1 text-xs text-red-500">{errors.email.message}</p>
-                    )}
-                  </div>
+                  <Input
+                    label="Email"
+                    type="email"
+                    placeholder="you@company.com"
+                    error={errors.email?.message}
+                    {...register("email", {
+                      required: "Please enter your email",
+                      pattern: {
+                        value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                        message: "Please enter a valid email",
+                      },
+                    })}
+                  />
 
-                  <div>
-                    <label className="block text-sm font-medium text-espresso mb-1.5">
-                      Phone <span className="text-espresso/30 font-normal">(optional)</span>
-                    </label>
-                    <input
-                      type="tel"
-                      placeholder="For a faster response"
-                      {...register("phone", {
-                        pattern: {
-                          value: /^[+]?[\d\s()-]{7,20}$/,
-                          message: "Please enter a valid phone number",
-                        },
-                      })}
-                      className={inputClass("phone")}
-                    />
-                    {errors.phone && (
-                      <p className="mt-1 text-xs text-red-500">{errors.phone.message}</p>
-                    )}
-                  </div>
+                  <Input
+                    label="Phone"
+                    optional
+                    type="tel"
+                    placeholder="For a faster response"
+                    error={errors.phone?.message}
+                    {...register("phone", {
+                      pattern: {
+                        value: /^[+]?[\d\s()-]{7,20}$/,
+                        message: "Please enter a valid phone number",
+                      },
+                    })}
+                  />
 
                   <div className="flex gap-3 mt-2">
-                    <button
+                    <Button
                       type="button"
+                      variant="outline"
                       onClick={() => setStep(0)}
-                      className="rounded-full border border-espresso/15 px-6 py-3.5 text-sm font-medium text-espresso/60 hover:text-espresso transition-colors cursor-pointer"
                     >
                       Back
-                    </button>
-                    <button
+                    </Button>
+                    <Button
                       type="button"
                       onClick={handleSubmit}
-                      className="flex-1 rounded-full bg-accent py-3.5 text-sm font-medium text-white hover:opacity-90 transition-opacity cursor-pointer"
+                      size="full"
+                      className="flex-1"
                     >
                       Get My Quote
-                    </button>
+                    </Button>
                   </div>
                 </motion.div>
               )}
@@ -352,7 +310,6 @@ export default function Contact() {
             </AnimatePresence>
           </div>
         </motion.div>
-      </div>
-    </section>
+    </Section>
   );
 }

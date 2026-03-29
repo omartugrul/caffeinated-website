@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
+import { Section, SectionHeading } from "@/components/ui";
 
 const steps = [
   {
@@ -100,27 +101,17 @@ export default function HowItWorks() {
   });
 
   return (
-    <section id="how-it-works" className="py-24 px-6 bg-cream">
-      <div className="mx-auto max-w-5xl">
-        <motion.h2
+    <Section id="how-it-works">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center text-3xl font-bold tracking-tight text-espresso sm:text-4xl"
         >
-          The Experience
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="mt-4 text-center text-espresso/50 max-w-lg mx-auto"
-        >
-          We&apos;re not a coffee truck. We&apos;re a mobile espresso bar that
-          shows up ready, serves craft drinks, and leaves it spotless.
-        </motion.p>
+          <SectionHeading subtitle="We're not a coffee truck. We're a mobile espresso bar that shows up ready, serves craft drinks, and leaves it spotless.">
+            The Experience
+          </SectionHeading>
+        </motion.div>
 
         <div
           ref={sectionRef}
@@ -154,7 +145,6 @@ export default function HowItWorks() {
             ))}
           </ol>
         </div>
-      </div>
-    </section>
+    </Section>
   );
 }

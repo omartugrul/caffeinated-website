@@ -2,17 +2,14 @@
 
 import { motion } from "framer-motion";
 import { packages } from "@/content/packages";
+import { Section, SectionHeading, Button } from "@/components/ui";
 
 export default function Packages() {
   return (
-    <section id="packages" className="py-24 px-6 bg-white">
-      <div className="mx-auto max-w-5xl">
-        <h2 className="text-center text-3xl font-bold tracking-tight text-espresso sm:text-4xl">
+    <Section id="packages" bg="white">
+        <SectionHeading subtitle="Straightforward pricing. Custom packages available for recurring bookings.">
           Choose Your Package
-        </h2>
-        <p className="mt-4 text-center text-espresso/50 max-w-lg mx-auto">
-          Straightforward pricing. Custom packages available for recurring bookings.
-        </p>
+        </SectionHeading>
         <div className="mt-16 grid gap-8 md:grid-cols-3 md:items-stretch">
           {packages.map((pkg, i) => (
             <motion.div
@@ -51,20 +48,17 @@ export default function Packages() {
                   </li>
                 ))}
               </ul>
-              <a
+              <Button
                 href="#contact"
-                className={`mt-8 block rounded-full py-3 text-center text-sm font-medium transition-opacity hover:opacity-90 ${
-                  pkg.highlighted
-                    ? "bg-amber text-white"
-                    : "bg-accent text-white"
-                }`}
+                variant={pkg.highlighted ? "amber" : "primary"}
+                size="full"
+                className="mt-8"
               >
                 Get a Quote
-              </a>
+              </Button>
             </motion.div>
           ))}
         </div>
-      </div>
-    </section>
+    </Section>
   );
 }

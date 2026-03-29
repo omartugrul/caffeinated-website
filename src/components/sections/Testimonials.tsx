@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Section, SectionHeading } from "@/components/ui";
 
 const testimonials = [
   {
@@ -25,11 +26,10 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-24 px-6 bg-white">
-      <div className="mx-auto max-w-5xl">
-        <h2 className="text-center text-3xl font-bold tracking-tight text-espresso sm:text-4xl">
+    <Section id="testimonials" bg="white">
+        <SectionHeading>
           What People Say
-        </h2>
+        </SectionHeading>
         <div className="mt-16 grid gap-8 sm:grid-cols-3">
           {testimonials.map((t, i) => (
             <motion.blockquote
@@ -48,7 +48,6 @@ export default function Testimonials() {
             </motion.blockquote>
           ))}
         </div>
-      </div>
-    </section>
+    </Section>
   );
 }
