@@ -107,7 +107,7 @@ export default function Menu() {
               >
                 <Image
                   src="/photos/drink-placeholder.png"
-                  alt={drink.subtitle}
+                  alt={drink.name}
                   width={280}
                   height={280}
                   className="w-full h-auto"
@@ -115,9 +115,8 @@ export default function Menu() {
 
                 <div className="mt-4 text-center">
                   <h3 className="text-lg font-bold text-espresso">{drink.name}</h3>
-                  <p className="text-sm text-espresso/40 font-medium">{drink.subtitle}</p>
-                  <p className="mt-2 text-sm text-espresso/60 leading-relaxed">
-                    {drink.ingredients.join(", ")}
+                  <p className="mt-1 text-sm text-espresso/60 leading-relaxed">
+                    {drink.description}
                   </p>
                 </div>
               </motion.div>
