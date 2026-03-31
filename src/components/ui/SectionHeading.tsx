@@ -7,7 +7,7 @@ interface SectionHeadingProps {
 export default function SectionHeading({
   children,
   subtitle,
-  subtitleColor = "text-espresso/50",
+  subtitleColor = "text-[#6B5B52]",
 }: SectionHeadingProps) {
   return (
     <>
@@ -15,7 +15,9 @@ export default function SectionHeading({
         {children}
       </h2>
       {subtitle && (
-        <p className={`mt-4 text-center ${subtitleColor} max-w-lg mx-auto`}>
+        <p
+          className={`mt-4 text-center text-[1.05rem] leading-relaxed ${subtitleColor} max-w-lg mx-auto`}
+        >
           {subtitle}
         </p>
       )}
