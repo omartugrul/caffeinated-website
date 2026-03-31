@@ -1,39 +1,44 @@
-export interface DrinkItem {
+export interface MenuCategory {
   name: string;
-  subtitle: string;
-  ingredients: string[];
+  tagline: string;
   image: string;
+  drinks: string[];
 }
 
-export const drinks: DrinkItem[] = [
+export const menuCategories: MenuCategory[] = [
   {
-    name: "Caf-feign-ated",
-    subtitle: "Iced Chai",
-    ingredients: ["Spiced chai concentrate", "Oat milk", "Vanilla", "Cinnamon dusting"],
-    image: "/photos/drinks/iced-chai.jpg",
+    name: "Cold Brews",
+    tagline: "Smooth, bold, served over ice.",
+    image: "/photos/menu/cold-brews.jpg",
+    drinks: [
+      "Salted Caramel",
+      "Brown Sugar Vanilla",
+      "Churro",
+      "Maple Vanilla",
+      "Spanish",
+    ],
   },
   {
-    name: "The Grind",
-    subtitle: "Cold Brew",
-    ingredients: ["24-hour steeped cold brew", "Brown sugar syrup", "Splash of cream"],
-    image: "/photos/drinks/cold-brew.jpg",
+    name: "Chai Lattes",
+    tagline: "Warm spice, perfectly sweet.",
+    image: "/photos/menu/chai-lattes.jpg",
+    drinks: ["Vanilla Cinnamon", "Spanish Chai"],
   },
   {
-    name: "Velvet Shot",
-    subtitle: "Latte",
-    ingredients: ["Double espresso", "Steamed oat milk", "Vanilla bean", "Latte art"],
-    image: "/photos/drinks/latte.jpg",
+    name: "Matcha Lattes",
+    tagline: "Vibrant, creamy, crowd favorite.",
+    image: "/photos/menu/matcha-lattes.jpg",
+    drinks: ["Maple", "Strawberry", "Mango"],
   },
   {
-    name: "Main Character",
-    subtitle: "Matcha",
-    ingredients: ["Ceremonial grade matcha", "Oat milk", "Honey", "Ice"],
-    image: "/photos/drinks/matcha.jpg",
-  },
-  {
-    name: "Plot Twist",
-    subtitle: "Refresher",
-    ingredients: ["Passion fruit", "Mango", "Green tea base", "Fresh mint"],
-    image: "/photos/drinks/refresher.jpg",
+    name: "Refreshers",
+    tagline: "Light, fruity, no caffeine needed.",
+    image: "/photos/menu/refreshers.jpg",
+    drinks: ["Strawberry Lemonade", "Mango Passionfruit"],
   },
 ];
+
+export const totalDrinkCount = menuCategories.reduce(
+  (sum, cat) => sum + cat.drinks.length,
+  0,
+);

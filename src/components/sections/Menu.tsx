@@ -1,46 +1,11 @@
 "use client";
 
-import { useRef, useState, useCallback, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { drinks } from "@/content/menu";
-import { Section, SectionHeading } from "@/components/ui";
+import { menuCategories, totalDrinkCount } from "@/content/menu";
+import { Section, SectionHeading, Button } from "@/components/ui";
 
 export default function Menu() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
-
-  const checkScroll = useCallback(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    setCanScrollLeft(el.scrollLeft > 4);
-    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 4);
-  }, []);
-
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    checkScroll();
-    el.addEventListener("scroll", checkScroll, { passive: true });
-    window.addEventListener("resize", checkScroll);
-    return () => {
-      el.removeEventListener("scroll", checkScroll);
-      window.removeEventListener("resize", checkScroll);
-    };
-  }, [checkScroll]);
-
-  const scroll = (direction: "left" | "right") => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const cardWidth = el.querySelector<HTMLElement>("[data-card]")?.offsetWidth ?? 300;
-    const gap = 24;
-    el.scrollBy({
-      left: direction === "left" ? -(cardWidth + gap) : cardWidth + gap,
-      behavior: "smooth",
-    });
-  };
-
   return (
     <Section id="menu" bg="white">
       <motion.div
@@ -49,72 +14,61 @@ export default function Menu() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <SectionHeading subtitle="Craft drinks made fresh at your event. Here are a few crowd favorites.">
-          The Menu
+        <SectionHeading subtitle="Handcrafted drinks your guests will actually be excited about. All served from our mobile coffee bar.">
+          Something for everyone.
         </SectionHeading>
       </motion.div>
 
-      <div className="relative mt-16">
-        {/* Left arrow */}
-        {canScrollLeft && (
-          <button
-            onClick={() => scroll("left")}
-            className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 text-espresso/30 hover:text-espresso/60 transition-colors cursor-pointer hidden sm:flex"
-            aria-label="Scroll left"
+      <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        {menuCategories.map((category, i) => (
+          <motion.div
+            key={category.name}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: i * 0.1 }}
+            className="group relative aspect-[4/3] overflow-hidden rounded-2xl"
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M15 6L9 12L15 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-        )}
+            {/* Category photo */}
+            <Image
+              src={category.image}
+              alt={category.name}
+              fill
+              sizes="(max-width: 640px) 100vw, 50vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
 
-        {/* Right arrow */}
-        {canScrollRight && (
-          <button
-            onClick={() => scroll("right")}
-            className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 text-espresso/30 hover:text-espresso/60 transition-colors cursor-pointer hidden sm:flex"
-            aria-label="Scroll right"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M9 6L15 12L9 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-        )}
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
 
-        {/* Scrollable container */}
-        <div
-          ref={scrollRef}
-          className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 -mx-6 px-6"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-        >
-          {drinks.map((drink, i) => (
-            <motion.div
-              key={drink.name}
-              data-card
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="snap-center shrink-0 w-[280px] sm:w-[calc((100%-48px)/3)]"
-            >
-              <Image
-                src="/photos/drink-placeholder.png"
-                alt={drink.subtitle}
-                width={280}
-                height={280}
-                className="w-full h-auto"
-              />
-
-              <div className="mt-4 text-center">
-                <h3 className="text-lg font-bold text-espresso">{drink.name}</h3>
-                <p className="text-sm text-espresso/40 font-medium">{drink.subtitle}</p>
-                <p className="mt-2 text-sm text-espresso/60 leading-relaxed">
-                  {drink.ingredients.join(", ")}
-                </p>
+            {/* Text content */}
+            <div className="absolute inset-0 flex flex-col justify-end p-6">
+              <h3 className="text-xl font-bold text-white sm:text-2xl">
+                {category.name}
+              </h3>
+              <p className="mt-1 text-sm text-white/80">{category.tagline}</p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {category.drinks.map((drink) => (
+                  <span
+                    key={drink}
+                    className="rounded-full bg-white/15 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm"
+                  >
+                    {drink}
+                  </span>
+                ))}
               </div>
-            </motion.div>
-          ))}
-        </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      <div className="mt-10 text-center">
+        <p className="mb-3 text-sm text-espresso/50">
+          {totalDrinkCount} handcrafted drinks. Zero cleanup for you.
+        </p>
+        <Button href="#contact" variant="amber">
+          Book Your Event &rarr;
+        </Button>
       </div>
     </Section>
   );
