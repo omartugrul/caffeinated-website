@@ -14,6 +14,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
 ) {
   const generatedId = useId();
   const resolvedId = id ?? generatedId;
+  const errorId = `${resolvedId}-error`;
 
   const inputClasses = `w-full rounded-lg border bg-white px-4 py-3 text-sm text-espresso placeholder:text-espresso/40 focus:outline-none transition-colors ${
     error
@@ -31,8 +32,15 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
           )}
         </label>
       )}
-      <input ref={ref} id={resolvedId} className={inputClasses} {...rest} />
-      {error && <p className="mt-1 text-xs text-red-500">{error}</p>}
+      <input
+        ref={ref}
+        id={resolvedId}
+        className={inputClasses}
+        aria-invalid={error ? true : undefined}
+        aria-describedby={error ? errorId : undefined}
+        {...rest}
+      />
+      {error && <p id={errorId} className="mt-1 text-xs text-red-500">{error}</p>}
     </div>
   );
 });
