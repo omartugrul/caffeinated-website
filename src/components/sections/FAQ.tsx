@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { faqs } from "@/content/faq";
+import { Section, SectionHeading } from "@/components/ui";
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [open, setOpen] = useState(false);
@@ -37,17 +38,15 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 
 export default function FAQ() {
   return (
-    <section id="faq" className="py-24 px-6 bg-cream">
-      <div className="mx-auto max-w-2xl">
-        <h2 className="text-center text-3xl font-bold tracking-tight text-espresso sm:text-4xl">
-          Frequently Asked Questions
-        </h2>
-        <div className="mt-12">
-          {faqs.map((faq) => (
-            <FAQItem key={faq.question} {...faq} />
-          ))}
-        </div>
+    <Section id="faq" maxWidth="2xl">
+      <SectionHeading>
+        Frequently Asked Questions
+      </SectionHeading>
+      <div className="mt-12">
+        {faqs.map((faq) => (
+          <FAQItem key={faq.question} {...faq} />
+        ))}
       </div>
-    </section>
+    </Section>
   );
 }

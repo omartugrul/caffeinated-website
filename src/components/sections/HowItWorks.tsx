@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
+import { Section, SectionHeading } from "@/components/ui";
 
 const steps = [
   {
@@ -100,61 +101,50 @@ export default function HowItWorks() {
   });
 
   return (
-    <section id="how-it-works" className="py-24 px-6 bg-cream">
-      <div className="mx-auto max-w-5xl">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center text-3xl font-bold tracking-tight text-espresso sm:text-4xl"
-        >
+    <Section id="how-it-works">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <SectionHeading subtitle="We're not a coffee truck. We're a mobile espresso bar that shows up ready, serves craft drinks, and leaves it spotless.">
           The Experience
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+        </SectionHeading>
+      </motion.div>
+
+      <div
+        ref={sectionRef}
+        className="mt-16 grid md:grid-cols-2 gap-8 md:gap-16 items-center"
+      >
+        <motion.div
+          initial={{ opacity: 0, scale: 0.97 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="mt-4 text-center text-espresso/50 max-w-lg mx-auto"
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="rounded-2xl overflow-hidden shadow-lg"
         >
-          We&apos;re not a coffee truck. We&apos;re a mobile espresso bar that
-          shows up ready, serves craft drinks, and leaves it spotless.
-        </motion.p>
+          <Image
+            src="/photos/team-with-cart.jpeg"
+            alt="Caffeinated team with espresso cart"
+            width={600}
+            height={750}
+            className="w-full object-cover aspect-square sepia-[.3] brightness-[0.9]"
+          />
+        </motion.div>
 
-        <div
-          ref={sectionRef}
-          className="mt-16 grid md:grid-cols-2 gap-8 md:gap-16 items-center"
-        >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.97 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="rounded-2xl overflow-hidden shadow-lg"
-          >
-            <Image
-              src="/photos/team-with-cart.jpeg"
-              alt="Caffeinated team with espresso cart"
-              width={600}
-              height={750}
-              className="w-full object-cover aspect-square sepia-[.3] brightness-[0.9]"
-            />
-          </motion.div>
-
-          <ol className="flex flex-col list-none p-0 m-0">
-            {steps.map((step, index) => (
-              <li key={step.number}>
-                <StepItem
-                  step={step}
-                  index={index}
-                  progress={scrollYProgress}
-                />
-              </li>
-            ))}
-          </ol>
-        </div>
+        <ol className="flex flex-col list-none p-0 m-0">
+          {steps.map((step, index) => (
+            <li key={step.number}>
+              <StepItem
+                step={step}
+                index={index}
+                progress={scrollYProgress}
+              />
+            </li>
+          ))}
+        </ol>
       </div>
-    </section>
+    </Section>
   );
 }

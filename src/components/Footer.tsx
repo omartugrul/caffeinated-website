@@ -1,20 +1,11 @@
+import { Logo } from "@/components/ui";
+
 export default function Footer() {
   return (
     <footer className="bg-espresso py-16 px-6">
       <div className="mx-auto max-w-5xl">
         <div className="flex flex-col items-center gap-8 text-center">
-          <p
-            id="logo-footer"
-            className="text-[24px] tracking-[-0.03em] lowercase leading-none"
-            style={{
-              fontFamily: "var(--font-plus-jakarta)",
-              fontWeight: 800,
-              fontStyle: "italic",
-              color: "white",
-            }}
-          >
-            caffeinated.
-          </p>
+          <Logo variant="white" size="sm" />
           <div className="flex flex-col gap-2 text-sm text-white/40">
             <p>Houston, TX metro area</p>
             <a

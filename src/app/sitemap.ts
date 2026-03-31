@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
-
-const siteUrl = "https://caffeinated.com"; // TODO: Replace with actual domain once purchased
+import { siteUrl } from "@/content/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

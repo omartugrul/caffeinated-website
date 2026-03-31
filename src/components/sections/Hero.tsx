@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Button, Logo } from "@/components/ui";
 
 export default function Hero() {
   return (
@@ -21,16 +22,8 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-3xl sm:text-4xl tracking-[-0.03em] lowercase leading-none"
-          style={{
-            fontFamily: "var(--font-plus-jakarta)",
-            fontWeight: 800,
-            fontStyle: "italic",
-            color: "transparent",
-            WebkitTextStroke: "1.5px #B07840",
-          }}
         >
-          caffeinated.
+          <Logo variant="outline" size="lg" />
         </motion.p>
 
         <motion.h1
@@ -58,12 +51,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <a
-            href="#contact"
-            className="inline-block rounded-full bg-accent px-6 py-3 text-sm font-medium text-white hover:opacity-90 transition-opacity"
-          >
-            Book Your Event
-          </a>
+          <Button href="#contact">Book Your Event</Button>
         </motion.div>
       </div>
     </section>
