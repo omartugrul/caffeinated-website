@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import { siteUrl } from "@/content/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,8 +14,6 @@ const plusJakarta = Plus_Jakarta_Sans({
   weight: ["800"],
   style: ["italic", "normal"],
 });
-
-const siteUrl = "https://caffeinated.com"; // TODO: Replace with actual domain once purchased
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

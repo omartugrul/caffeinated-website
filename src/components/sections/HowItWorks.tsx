@@ -108,7 +108,7 @@ export default function HowItWorks() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <SectionHeading subtitle="We're not a coffee truck. We're a mobile espresso bar that shows up ready, serves craft drinks, and leaves it spotless.">
+        <SectionHeading subtitle="We're not an afterthought. We're a mobile coffee bar that takes care of everything from setup to the last cup.">
           The Experience
         </SectionHeading>
       </motion.div>
@@ -126,7 +126,7 @@ export default function HowItWorks() {
         >
           <Image
             src="/photos/team-with-cart.jpeg"
-            alt="Caffeinated team with espresso cart"
+            alt="Caffeinated team with coffee cart"
             width={600}
             height={750}
             className="w-full object-cover aspect-square sepia-[.3] brightness-[0.9]"

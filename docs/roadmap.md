@@ -6,21 +6,22 @@
 
 ## Phase 1: Website Launch
 
-- [ ] Finalize section layout and content (Option B structure)
+- [x] Finalize section layout and content (Option B structure)
 - [x] Build multi-step contact/quote form (embedded, seamless)
 - [x] Decide on form service: headless (React Hook Form + Formspree/Resend) vs Fillout vs Tally Pro
-  - Chose React Hook Form. Form submission backend (Attio + Resend) still TODO in Phase 2.
-- [ ] Source bobawali photos and adapt via Gemini/Nanobanana for coffee context
-- [ ] Write final copy for all sections
-- [ ] Finalize package pricing and descriptions
-- [ ] Mobile-first responsive polish
-- [ ] Add sticky mobile CTA bar
+- [x] Finalize package pricing and descriptions ($499 / $899 / $1,499)
 - [x] SEO setup: JSON-LD LocalBusiness schema, meta tags, sitemap, robots.txt
-- [ ] Google Business Profile setup
-- [ ] Fix favicon — gradient doesn't match header logo exactly. Needs to be regenerated with correct gradient rendering
+- [x] Code review and accessibility fixes (a11y, form validation, image sizes)
+- [ ] Wire form submission backend (API route + Attio + Resend)
+- [ ] Source bobawali photos and adapt via Gemini/Nanobanana for coffee context
+- [ ] Replace drink menu placeholder images with real photos
+- [ ] Write final copy for all sections
+- [ ] Mobile-first responsive polish
+- [x] Fix favicon — gradient doesn't match header logo exactly
 - [ ] Buy the domain
 - [ ] Set up Google Workspace for email
-- [ ] Deploy (Vercel or static export)
+- [ ] Google Business Profile setup
+- [ ] Deploy — decide: Cloudflare Pages (+ Functions or external form service) vs Netlify (see docs/decisions.md)
 
 ---
 
@@ -37,12 +38,13 @@
 
 ## Phase 3: Analytics & Tracking
 
-- [ ] **PostHog setup** — product analytics, funnel tracking, session recordings
+- [ ] **PostHog setup** — product analytics, funnel tracking, session recordings (decided, free tier 1M events/mo)
   - Track: page scroll depth, CTA clicks, form starts vs completions, section engagement
   - Goal: understand where visitors drop off and optimize conversion
-  - PostHog has a generous free tier (1M events/mo)
+  - Replaces GA4 — no need for both
+- [ ] **Google Search Console setup** — SEO monitoring (decided, free, requires domain + DNS verification)
+  - Search queries, keyword positions, click-through rates, indexing status, Core Web Vitals
 - [ ] Set up UTM parameter tracking for inbound sources
-- [ ] Google Analytics 4 as baseline (or PostHog as replacement)
 - [ ] Form funnel analytics (where do people abandon the multi-step form?)
 
 ---

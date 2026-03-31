@@ -191,6 +191,57 @@ NOTE: This means the site needs a serverless backend (Next.js API routes), not a
 
 ---
 
+## Analytics & SEO Monitoring
+
+**Decision: PostHog + Google Search Console**
+
+### Analytics: PostHog
+- Product analytics, funnel tracking, session recordings
+- Free tier: 1M events/month (more than enough for launch)
+- Track: page scroll depth, CTA clicks, form starts vs completions, section engagement
+- Replaces Google Analytics 4 -- no need for both
+- Client-side JS snippet, works with any hosting setup (static or serverless)
+
+### SEO Monitoring: Google Search Console
+- Free, non-negotiable, nothing replaces it
+- Shows actual search queries, impressions, click-through rates, and keyword positions
+- Indexing status, crawl errors, Core Web Vitals
+- Setup: DNS TXT record or meta tag verification
+- Paid tools (Ahrefs, Semrush at $99+/mo) are overkill until consistent traffic
+
+---
+
+## Hosting & Deployment
+
+**Decision: OPEN -- evaluating options**
+
+The entire site is statically generated (`output: 'export'`). The only server-side requirement is the form submission backend (API route -> Attio + Resend). Three options under consideration:
+
+### Option A: Cloudflare Pages + Cloudflare Functions
+- **Cost:** Free (unlimited bandwidth, unlimited requests, 500 builds/month)
+- **Form backend:** Cloudflare Pages Functions (serverless, lives in `/functions` directory)
+- **Pros:** Fastest global CDN, unlimited bandwidth, $0, DNS + hosting in one place
+- **Cons:** Form backend uses Cloudflare's runtime (not Next.js API routes), slight learning curve
+- **Architecture:** Static export + Cloudflare function for form handler
+
+### Option B: Cloudflare Pages + External Form Service
+- **Cost:** Free (Cloudflare) + form service cost (Formspree $10/mo or Resend free tier)
+- **Form backend:** Client-side POST to external API (Formspree, Resend, etc.)
+- **Pros:** Simplest, fully static, no serverless code to maintain
+- **Cons:** Third-party dependency for forms, may limit Attio integration flexibility
+
+### Option C: Netlify
+- **Cost:** Free tier (100GB bandwidth/month, 300 build minutes, serverless functions included)
+- **Form backend:** Netlify Functions (serverless, same repo) or Netlify Forms (built-in, simpler)
+- **Pros:** Best Next.js support out of the box, serverless functions included on free tier, simplest setup
+- **Cons:** 100GB bandwidth cap (vs Cloudflare unlimited), 300 build minute cap
+
+**Leaning toward:** Netlify for simplicity (serverless functions on free tier solve the form backend without extra config) or Cloudflare for unlimited bandwidth. Decision depends on whether simplicity or cost ceiling matters more.
+
+**NOTE:** Previous decision to use Next.js API routes (see Form & Lead Capture section) assumed Vercel. If deploying to Cloudflare static, the form handler needs to be a Cloudflare Function instead. If deploying to Netlify, Next.js API routes work as-is via Netlify Functions adapter.
+
+---
+
 ## Bobawali Reference Analysis
 
 **Section order:** Hero → Logo carousel → Menu showcase → The Experience (differentiator) → Testimonials → Press → Booking CTA → Footer

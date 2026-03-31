@@ -9,8 +9,9 @@ export default function Hero() {
     <section id="hero" className="relative flex min-h-screen items-center justify-center px-6 overflow-hidden">
       <Image
         src="/photos/hero-placeholder.jpg"
-        alt="Barista preparing espresso at a mobile coffee cart"
+        alt="Barista preparing cold brew at a mobile coffee cart"
         fill
+        sizes="100vw"
         className="object-cover sepia-[.3] brightness-[0.9]"
         priority
       />

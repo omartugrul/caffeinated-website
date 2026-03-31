@@ -1,5 +1,3 @@
-"use client";
-
 import { Button, Logo } from "@/components/ui";
 
 export default function Navbar() {

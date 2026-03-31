@@ -12,7 +12,7 @@ export const faqs: FAQItem[] = [
   {
     question: "What's included in every package?",
     answer:
-      "Every package includes a professional barista, our full espresso cart setup, all drinks and supplies (cups, lids, napkins, stirrers), setup and teardown, and travel anywhere in the Houston metro area. You don't need to provide anything.",
+      "Every package includes a professional barista, our full coffee cart setup, all drinks and supplies (cups, lids, napkins, stirrers), setup and teardown, and travel anywhere in the Houston metro area. You don't need to provide anything.",
   },
   {
     question: "Can I customize the drink menu?",

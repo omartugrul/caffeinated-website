@@ -125,7 +125,7 @@ export default function Contact() {
           </div>
         )}
 
-        <div className="mt-8 min-h-[320px]">
+        <form className="mt-8 min-h-[320px]" noValidate onSubmit={(e) => e.preventDefault()}>
           <AnimatePresence mode="wait">
             {/* Step 1: Event Details */}
             {step === 0 && (
@@ -139,13 +139,15 @@ export default function Contact() {
                 className="flex flex-col gap-6"
               >
                 <div>
-                  <p className="text-sm font-medium text-espresso mb-3">What type of event?</p>
+                  <p className="text-sm font-medium text-espresso mb-3" id="event-type-label">What type of event?</p>
                   <input type="hidden" {...register("eventType", { required: true })} />
-                  <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+                  <div role="radiogroup" aria-labelledby="event-type-label" className="grid grid-cols-2 gap-3 sm:grid-cols-3">
                     {eventTypes.map((type) => (
                       <button
                         key={type.value}
                         type="button"
+                        role="radio"
+                        aria-checked={form.eventType === type.value}
                         onClick={() => setValue("eventType", type.value, { shouldValidate: true })}
                         className={`rounded-xl border px-4 py-3 text-sm text-left transition-all cursor-pointer ${
                           form.eventType === type.value
@@ -180,8 +182,9 @@ export default function Contact() {
                       validate: (v) => {
                         const selected = new Date(v);
                         const min = new Date();
-                        min.setDate(min.getDate() + 2);
-                        return selected > min || "Date must be at least 3 days out";
+                        min.setDate(min.getDate() + 3);
+                        min.setHours(0, 0, 0, 0);
+                        return selected >= min || "Date must be at least 3 days out";
                       },
                     })}
                   />
@@ -308,7 +311,7 @@ export default function Contact() {
               </motion.div>
             )}
           </AnimatePresence>
-        </div>
+        </form>
       </motion.div>
     </Section>
   );

@@ -5,10 +5,10 @@ import Image from "next/image";
 import { Section, SectionHeading } from "@/components/ui";
 
 const photos = [
-  { src: "/photos/event-cart-customers.jpeg", alt: "Espresso cart serving customers at an event" },
+  { src: "/photos/event-cart-customers.jpeg", alt: "Coffee cart serving customers at an event" },
   { src: "/photos/event-google-cloud.jpeg", alt: "Caffeinated at a Google Cloud event" },
   { src: "/photos/event-outdoor-backyard.jpeg", alt: "Outdoor backyard event setup" },
-  { src: "/photos/cart-setup.jpeg", alt: "Espresso cart setup" },
+  { src: "/photos/cart-setup.jpeg", alt: "Coffee cart setup" },
   { src: "/photos/drinks-four-tray.jpeg", alt: "Four craft drinks on a tray" },
   { src: "/photos/drink-catering-event.jpeg", alt: "Drink at a catering event" },
 ];
@@ -33,6 +33,7 @@ export default function Gallery() {
               src={photo.src}
               alt={photo.alt}
               fill
+              sizes="(min-width: 640px) 33vw, 50vw"
               className="object-cover sepia-[.4] brightness-[0.9]"
             />
           </motion.div>

@@ -15,7 +15,7 @@ export default function About() {
       >
         <SectionHeading>About Us</SectionHeading>
         <p className="mt-6 text-lg leading-relaxed text-espresso/60">
-          Caffeinated is a mobile espresso bar based in Houston, Texas. We cater corporate events,
+          Caffeinated is a mobile coffee bar based in Houston, Texas. We cater corporate events,
           weddings, and private functions across the metro area. We started because we believed
           coffee catering should be as polished as the events we serve. Professional, reliable,
           and effortless for the person booking it.

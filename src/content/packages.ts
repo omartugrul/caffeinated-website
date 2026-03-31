@@ -1,10 +1,18 @@
-export const packages = [
+export interface PackageItem {
+  name: string;
+  price: string;
+  description: string;
+  features: string[];
+  highlighted?: boolean;
+}
+
+export const packages: PackageItem[] = [
   {
     name: "The Standard",
     price: "$499",
     description: "Perfect for team lunches and small office events.",
     features: [
-      "Professional barista + full espresso setup",
+      "Professional barista + full coffee bar setup",
       "2 hours of service",
       "Up to 75 drinks",
       "Classic drink menu",
