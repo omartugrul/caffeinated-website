@@ -2,7 +2,7 @@
 
 # Caffeinated
 
-Mobile espresso cart landing page in Houston, TX. Single-page, conversion-focused site driving event bookings.
+Mobile coffee cart landing page in Houston, TX. Single-page, conversion-focused site driving event bookings.
 
 ## Project Docs
 - `docs/concept.md` — Source of truth (business, packages, tech stack, GTM)
@@ -15,11 +15,15 @@ Mobile espresso cart landing page in Houston, TX. Single-page, conversion-focuse
 - Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4, Framer Motion 12
 - Single-page static site — all sections in `page.tsx`
 - Content data separated into `/content/*.ts` files
-- Components in `components/sections/` with barrel export
+- Section components in `components/sections/` with barrel export
+- Shared UI primitives in `components/ui/` (Button, Input, Logo, Section, SectionHeading) with barrel export — use these instead of raw HTML for buttons, inputs, logos, section wrappers, and headings
+
+## Color Palette
+Four colors defined in `@theme inline` in `globals.css`: `espresso` (dark brown, text), `amber` (warm accent, CTAs), `cream` (warm off-white, backgrounds), `accent` (slightly warmer dark brown, button backgrounds). Logo gradient hex values (#C8773A, #8B4513) are hardcoded in `components/ui/Logo.tsx` and `opengraph-image.tsx`.
 
 ## Tailwind v4 Gotchas
 - Custom colors go in `@theme inline` in `globals.css` with `--color-` prefix. Do NOT use `:root` vars — they won't generate utility classes.
-- `next/font` CSS vars don't work as Tailwind classes. Use inline `style={{ fontFamily: "var(--font-plus-jakarta)" }}`.
+- `next/font` CSS vars don't work as Tailwind classes. Use inline `style={{ fontFamily: "var(--font-plus-jakarta)" }}` (or use the `Logo` component which handles this).
 
 ## Key Patterns
 - `'use client'` on components using Framer Motion, useState, or browser APIs
@@ -44,6 +48,11 @@ When making changes, keep these in sync:
 - **Adding service types or packages**: Add relevant keywords to `metadata.keywords` in `layout.tsx` and to `knowsAbout` in the `jsonLd` object.
 - **Adding images**: Always include descriptive alt text.
 - **OG image**: Generated via `app/opengraph-image.tsx` using `ImageResponse` from `next/og`. Twitter card reuses it via `app/twitter-image.tsx`. To change the OG image, edit `opengraph-image.tsx` -- no metadata changes needed (file convention auto-injects).
+
+## Design System
+- Internal reference page at `/design-system` — shows all UI primitives and live component renders.
+- Blocked from crawlers via `robots.ts` disallow + `noindex` metadata.
+- Not linked from the main site.
 
 ## Commit Messages
 - Plain and concise. No emojis, no markdown, no Claude attribution.
