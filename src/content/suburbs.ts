@@ -34,7 +34,7 @@ export const suburbs: Suburb[] = [
     areaType: "City",
   },
   {
-    slug: "sugar-land",
+    slug: "sugarland",
     name: "Sugar Land",
     headline: "Coffee Catering in Sugar Land",
     description:
@@ -58,7 +58,7 @@ export const suburbs: Suburb[] = [
     areaType: "City",
   },
   {
-    slug: "clear-lake",
+    slug: "clearlake",
     name: "Clear Lake",
     headline: "Coffee Catering in Clear Lake & Bay Area Houston",
     description:
