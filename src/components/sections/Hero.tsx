@@ -4,7 +4,17 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button, Logo } from "@/components/ui";
 
-export default function Hero() {
+interface HeroProps {
+  headline?: React.ReactNode;
+  subtitle?: string;
+  showLogo?: boolean;
+}
+
+export default function Hero({
+  headline,
+  subtitle = "We bring the coffee bar to your event. You just pick a date.",
+  showLogo = true,
+}: HeroProps) {
   return (
     <section id="hero" className="relative flex min-h-screen items-center justify-center px-6 overflow-hidden">
       <Image
@@ -18,23 +28,28 @@ export default function Hero() {
       <div className="absolute inset-0 bg-espresso/60" />
 
       <div className="relative mx-auto max-w-3xl text-center">
-        {/* Logo wordmark */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <Logo variant="outline" size="lg" />
-        </motion.p>
+        {showLogo && (
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <Logo variant="outline" size="lg" />
+          </motion.p>
+        )}
 
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="mt-8 text-3xl sm:text-5xl font-bold tracking-tight text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.3)]"
+          className={`${showLogo ? "mt-8" : ""} text-3xl sm:text-5xl font-bold tracking-tight text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.3)]`}
         >
-          Your next event,{" "}
-          <span className="hero-shimmer">elevated.</span>
+          {headline ?? (
+            <>
+              Your next event,{" "}
+              <span className="hero-shimmer">elevated.</span>
+            </>
+          )}
         </motion.h1>
 
         <motion.p
@@ -43,7 +58,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-6 text-base text-white/70 sm:text-lg max-w-lg mx-auto drop-shadow-[0_2px_12px_rgba(0,0,0,0.2)]"
         >
-          We bring the coffee bar to your event. You just pick a date.
+          {subtitle}
         </motion.p>
 
         <motion.div

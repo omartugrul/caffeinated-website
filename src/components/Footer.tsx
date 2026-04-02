@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { Logo } from "@/components/ui";
+import { suburbs } from "@/content/suburbs";
 
 export default function Footer() {
   return (
@@ -27,6 +29,21 @@ export default function Footer() {
               </svg>
             </a>
           </div>
+          <div className="w-full">
+            <p className="text-xs font-medium text-white/30 uppercase tracking-wider mb-3">Areas We Serve</p>
+            <div className="flex flex-wrap justify-center gap-x-4 gap-y-1.5">
+              {suburbs.map((suburb) => (
+                <Link
+                  key={suburb.slug}
+                  href={`/${suburb.slug}`}
+                  className="text-xs text-white/25 hover:text-white/50 transition-colors"
+                >
+                  {suburb.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+
           <p className="text-xs text-white/20">
             &copy; {new Date().getFullYear()} Caffeinated. All rights reserved.
           </p>

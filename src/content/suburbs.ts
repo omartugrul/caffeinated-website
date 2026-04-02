@@ -3,10 +3,9 @@ export interface Suburb {
   name: string;
   headline: string;
   description: string;
+  subtitle: string;
   intro: string;
-  venues: string[];
-  angle: "corporate" | "wedding" | "mixed";
-  neighborhoods?: string[];
+  areaType: "City" | "Place";
 }
 
 export const suburbs: Suburb[] = [
@@ -15,34 +14,24 @@ export const suburbs: Suburb[] = [
     name: "The Woodlands",
     headline: "Coffee Catering in The Woodlands",
     description:
-      "Mobile espresso bar and coffee catering for corporate events, weddings, and private parties in The Woodlands, TX. Serving the entire 28,000-acre master-planned community.",
+      "Mobile espresso bar and coffee catering for corporate events, weddings, and private parties in The Woodlands, TX. Book a barista today.",
+    subtitle:
+      "Mobile coffee bar for corporate events, weddings, and private functions in The Woodlands and the Research Forest corridor.",
     intro:
-      "The Woodlands is home to some of Houston's largest corporate campuses, from ExxonMobil's sprawling headquarters on Woodlands Parkway to HP and Occidental Petroleum along the Research Forest corridor. Our mobile coffee bar rolls right up to your office lobby, team offsite at The Woodlands Waterway, or that next big product launch. Whether you're fueling a 200-person all-hands or a smaller leadership retreat, we bring craft cold brew and specialty drinks straight to your people.",
-    venues: [
-      "The Woodlands Waterway Marriott",
-      "ExxonMobil Campus at Hughes Landing",
-      "The Cynthia Woods Mitchell Pavilion",
-      "The Woodlands Country Club",
-      "Research Forest Lakeside",
-    ],
-    angle: "corporate",
+      "The Woodlands is packed with corporate campuses and event venues, from the Waterway district to Research Forest. Whether you're planning an all-hands, a client appreciation event, or a wedding reception, we bring the full coffee bar to you. All setup and teardown handled, travel included.",
+    areaType: "City",
   },
   {
     slug: "katy",
     name: "Katy",
     headline: "Coffee Catering in Katy",
     description:
-      "Professional espresso catering for corporate offices, community events, and celebrations in Katy, TX. We bring the coffee bar to LaCenterra, Cinco Ranch, and beyond.",
+      "Professional espresso catering for corporate events and celebrations in Katy, TX. Serving LaCenterra, Cinco Ranch, and beyond.",
+    subtitle:
+      "Coffee catering for office events, celebrations, and private parties across Katy, Cinco Ranch, and the LJ Parkway corridor.",
     intro:
-      "Katy has quietly become one of Houston's fastest-growing corporate corridors. The stretch along LJ Parkway is packed with office parks, and developments like Katy Boardwalk District and LaCenterra at Cinco Ranch are drawing more companies west every year. Our mobile coffee bar fits right into that energy. We've set up for office appreciation days, grand openings, and neighborhood block parties from Cinco Ranch to Cross Creek Ranch. Great cold brew makes any Katy event better.",
-    venues: [
-      "LaCenterra at Cinco Ranch",
-      "Katy Boardwalk District",
-      "Katy Mills Mall event spaces",
-      "Typhoon Texas waterpark events",
-      "The ARK by Norris (Katy wedding venue)",
-    ],
-    angle: "corporate",
+      "Katy keeps growing, and so does the demand for great event experiences out west. From office parks along LJ Parkway to community celebrations in Cinco Ranch, we bring craft cold brew and a full coffee bar setup to your event. You pick the date, we handle everything else.",
+    areaType: "City",
   },
   {
     slug: "sugar-land",
@@ -50,16 +39,11 @@ export const suburbs: Suburb[] = [
     headline: "Coffee Catering in Sugar Land",
     description:
       "Mobile espresso bar and coffee catering for corporate events and celebrations in Sugar Land, TX. Serving offices near Fluor, SLB, and Sugar Land Town Square.",
+    subtitle:
+      "Coffee catering for corporate events, private parties, and community celebrations in Sugar Land and Fort Bend County.",
     intro:
-      "Sugar Land punches above its weight when it comes to corporate presence. Fluor's global headquarters anchors the area, SLB (formerly Schlumberger) has a major campus nearby, and the office parks along Highway 6 keep growing. Beyond the corporate scene, Sugar Land Town Square is a go-to spot for community events and private celebrations. We bring our coffee bar to all of it. From investor meetings at Constellation Field to team-building days at the office, our cold brew and specialty drinks set the right tone.",
-    venues: [
-      "Sugar Land Town Square",
-      "Constellation Field (Sugar Land Space Cowboys)",
-      "Smart Financial Centre",
-      "Fluor Global Headquarters",
-      "Fort Bend County Fairgrounds",
-    ],
-    angle: "corporate",
+      "Sugar Land has a strong corporate presence and a community that knows how to celebrate. Whether it's a team event at the office, a gathering at Town Square, or a private party in one of the master-planned neighborhoods, our mobile coffee bar is built for it. Professional barista, full setup, zero hassle on your end.",
+    areaType: "City",
   },
   {
     slug: "pearland",
@@ -67,16 +51,11 @@ export const suburbs: Suburb[] = [
     headline: "Coffee Catering in Pearland",
     description:
       "Mobile espresso and coffee catering for events in Pearland, TX. Serving Shadow Creek Ranch, Silverlake, and the growing Pearland business corridor.",
+    subtitle:
+      "Mobile coffee bar for events in Pearland, Shadow Creek Ranch, and the 288 corridor.",
     intro:
-      "Pearland has grown from a quiet suburb into a legitimate business hub along the 288 corridor. Shadow Creek Ranch and Silverlake have brought thousands of families to the area, and the Pearland Town Center serves as a gathering point for the whole community. Our mobile coffee bar is a natural fit for corporate open houses, neighborhood HOA events, and celebrations at local venues. We bring craft cold brew and specialty drinks wherever Pearland gathers.",
-    venues: [
-      "Pearland Town Center",
-      "Hilton Garden Inn Pearland",
-      "Shadow Creek Ranch community spaces",
-      "Pearland Recreation Center & Natatorium",
-      "Old Pearland event venues along Broadway",
-    ],
-    angle: "mixed",
+      "Pearland is one of Houston's fastest-growing suburbs, and events here deserve more than a basic coffee setup. From corporate open houses to neighborhood celebrations in Shadow Creek, we bring craft cold brew and specialty drinks straight to your venue. All supplies included, all logistics handled.",
+    areaType: "City",
   },
   {
     slug: "clear-lake",
@@ -84,17 +63,11 @@ export const suburbs: Suburb[] = [
     headline: "Coffee Catering in Clear Lake & Bay Area Houston",
     description:
       "Mobile espresso bar for corporate events, NASA contractor meetings, and celebrations in Clear Lake, Webster, and League City, TX.",
+    subtitle:
+      "Coffee catering for corporate events and celebrations in Clear Lake, Webster, League City, and Bay Area Houston.",
     intro:
-      "Clear Lake runs on innovation, and it always has. NASA's Johnson Space Center and the aerospace contractors that surround it make this one of Houston's most concentrated pockets of engineering talent. But it's not all rocket science. The Kemah Boardwalk, South Shore Harbour, and the restaurants along NASA Parkway make the Bay Area a popular spot for celebrations and private events too. Our mobile coffee bar serves both sides of Clear Lake life, from keeping engineers caffeinated during long project sprints to adding a craft cold brew station to your waterfront reception.",
-    venues: [
-      "Space Center Houston",
-      "South Shore Harbour Resort",
-      "Kemah Boardwalk",
-      "Bay Area Houston Convention Center (Lone Star Flight Museum)",
-      "Hilton Houston NASA Clear Lake",
-    ],
-    angle: "mixed",
-    neighborhoods: ["Webster", "League City", "Seabrook", "Kemah"],
+      "The Bay Area Houston community runs on brainpower, from NASA and the aerospace contractors to the growing business presence along the Gulf Freeway. Our mobile coffee bar serves corporate events, private celebrations, and everything in between across Clear Lake, Webster, League City, and Kemah. We bring the full setup to you.",
+    areaType: "Place",
   },
   {
     slug: "downtown",
@@ -102,33 +75,23 @@ export const suburbs: Suburb[] = [
     headline: "Coffee Catering in Downtown Houston",
     description:
       "Mobile espresso bar for office events, conferences, and corporate gatherings in downtown Houston. Serving the Theater District, GRB, and Main Street corridor.",
+    subtitle:
+      "Mobile coffee bar for office events, conferences, and corporate gatherings in downtown Houston.",
     intro:
-      "Downtown Houston is where the deals get done. From the office towers along Louisiana and Smith to the George R. Brown Convention Center and the Theater District, this is the heart of Houston's business world. Our mobile coffee bar is built for the pace of downtown. We set up in lobbies, conference floors, and event spaces to keep your team and your guests fueled with craft cold brew and specialty drinks. No permits to worry about, no logistics headaches. We handle everything.",
-    venues: [
-      "George R. Brown Convention Center",
-      "Wortham Theater Center",
-      "The Revaire (downtown event venue)",
-      "Marriott Marquis Houston",
-      "Discovery Green",
-    ],
-    angle: "corporate",
+      "Downtown moves fast, and your event vendor should too. We set up in office lobbies, conference floors, and event spaces across downtown Houston. Craft cold brew and specialty drinks, served by a professional barista, with full setup and teardown. No permits to worry about, no coordination headaches.",
+    areaType: "Place",
   },
   {
     slug: "midtown",
     name: "Midtown",
     headline: "Coffee Catering in Midtown Houston",
     description:
-      "Mobile espresso catering for private events, office parties, and celebrations in Midtown Houston. Coffee cart service near Bagby Street and the Midtown corridor.",
+      "Mobile espresso catering for private events, office parties, and celebrations in Midtown Houston. Serving the Bagby Street corridor.",
+    subtitle:
+      "Coffee catering for private events, office parties, and celebrations in Midtown Houston.",
     intro:
-      "Midtown is Houston's go-to neighborhood for nightlife and events, but it's also home to a growing number of creative offices, coworking spaces, and startups along the Bagby Street corridor. It's the kind of neighborhood where a morning coffee bar at a product launch can transition into an afternoon cold brew station at a rooftop happy hour. We bring our mobile coffee bar to Midtown's mix of work and play, from corporate open houses to birthday celebrations at the neighborhood's many event-ready venues.",
-    venues: [
-      "The Astorian",
-      "Midtown Arts & Theater Center Houston (MATCH)",
-      "Midtown Park",
-      "The Ballroom at Bayou Place",
-      "Silver Street Studios",
-    ],
-    angle: "mixed",
+      "Midtown has a mix of creative offices, coworking spaces, and event venues that make it one of Houston's most popular spots for gatherings. Our mobile coffee bar fits right in, whether it's a morning product launch, an afternoon team appreciation, or an evening celebration. We bring everything and handle all the logistics.",
+    areaType: "Place",
   },
   {
     slug: "heights",
@@ -136,34 +99,23 @@ export const suburbs: Suburb[] = [
     headline: "Coffee Catering in The Heights",
     description:
       "Mobile espresso bar for weddings, private parties, and corporate events in The Heights, Houston. Craft coffee catering along 19th Street and White Oak.",
+    subtitle:
+      "Mobile coffee bar for weddings, private parties, and events along 19th Street and White Oak.",
     intro:
-      "The Heights is one of Houston's most sought-after neighborhoods for weddings and events. The tree-lined streets, renovated bungalows, and venues along 19th Street and White Oak create the kind of atmosphere that makes every event feel intentional. Our mobile coffee bar fits right into the vibe. We've poured cold brew at Heights wedding receptions, art market pop-ups, and corporate off-sites at the neighborhood's many character-filled venues. If your event is in the Heights, the coffee should match the setting.",
-    venues: [
-      "The Heights Fire Station (event venue)",
-      "Artisans Houston (Heights Boulevard)",
-      "White Oak Music Hall",
-      "The Raven Tower",
-      "Eureka Heights Brew Co.",
-    ],
-    angle: "mixed",
+      "The Heights is one of Houston's most popular neighborhoods for weddings, private events, and gatherings with character. The venues here have a vibe, and the coffee should match. Our mobile coffee bar brings craft cold brew and specialty drinks with a setup that fits the setting. Professional, effortless, and designed to impress your guests.",
+    areaType: "Place",
   },
   {
     slug: "galleria",
     name: "Galleria / Uptown",
     headline: "Coffee Catering in the Galleria & Uptown Houston",
     description:
-      "Mobile espresso bar for corporate events and private parties in the Galleria, Uptown, and Post Oak corridor. Premium coffee catering for Houston's business district.",
+      "Mobile espresso bar for corporate events and private parties in the Galleria, Uptown, and Post Oak corridor. Book a barista today.",
+    subtitle:
+      "Coffee catering for corporate events and private parties in the Galleria, Uptown, and Post Oak corridor.",
     intro:
-      "The Galleria area is Houston's second skyline for a reason. Williams Tower, the Post Oak corridor, and the Uptown office district house some of the city's biggest firms and most polished event spaces. When you're hosting clients, treating your team, or putting together an event at one of Uptown's premier venues, the details matter. Our mobile coffee bar delivers craft cold brew and specialty drinks with the kind of presentation that fits the Galleria standard. Professional setup, professional baristas, zero hassle.",
-    venues: [
-      "The Post Oak Hotel",
-      "Royal Sonesta Houston Galleria",
-      "Williams Tower and surrounding plazas",
-      "Houston Country Club",
-      "Uptown Park shopping and event spaces",
-    ],
-    angle: "corporate",
-    neighborhoods: ["Uptown", "Post Oak", "Tanglewood", "River Oaks adjacent"],
+      "The Galleria and Uptown area is home to some of Houston's biggest corporate offices and most polished event spaces. When you're hosting clients or treating your team, the details matter. Our mobile coffee bar delivers craft cold brew and specialty drinks with the kind of presentation that fits the setting. Full setup, professional barista, everything included.",
+    areaType: "Place",
   },
   {
     slug: "memorial",
@@ -171,17 +123,11 @@ export const suburbs: Suburb[] = [
     headline: "Coffee Catering in Memorial Houston",
     description:
       "Mobile espresso catering for corporate offices, community events, and private parties in Memorial, Memorial City, and the I-10 corridor in Houston, TX.",
+    subtitle:
+      "Mobile coffee bar for corporate offices, community events, and private parties along the Memorial I-10 corridor.",
     intro:
-      "Memorial stretches along the I-10 corridor west of downtown, anchored by Memorial City and the cluster of corporate offices between Beltway 8 and Highway 6. It's a mix of established neighborhoods and serious business presence. Our mobile coffee bar serves the corporate side with lobby setups and conference-room service for team events, and the residential side with cold brew stations for HOA gatherings, school fundraisers, and private celebrations. Memorial moves fast, and our coffee keeps up.",
-    venues: [
-      "Memorial City Mall event spaces",
-      "The Westin Houston, Memorial City",
-      "Terry Hershey Park pavilions",
-      "Memorial Park Conservancy events",
-      "Houston Arboretum & Nature Center",
-    ],
-    angle: "corporate",
-    neighborhoods: ["Memorial City", "Memorial Villages", "Spring Branch"],
+      "Memorial stretches along the I-10 corridor with a strong mix of corporate offices and established neighborhoods. From team events in Memorial City office parks to private celebrations and HOA gatherings, we bring our full coffee bar setup to you. Professional barista, all supplies, setup and teardown handled.",
+    areaType: "Place",
   },
   {
     slug: "energy-corridor",
@@ -189,16 +135,11 @@ export const suburbs: Suburb[] = [
     headline: "Coffee Catering in Houston's Energy Corridor",
     description:
       "Mobile espresso bar for corporate events and office gatherings in Houston's Energy Corridor. Serving BP, ConocoPhillips, Shell campuses, and CityCentre.",
+    subtitle:
+      "Coffee catering for corporate events and office gatherings along Eldridge Parkway and the Energy Corridor.",
     intro:
-      "The Energy Corridor is the fuel behind Houston's fuel industry. BP, ConocoPhillips, and Shell all have major campuses here, and the office parks along Eldridge Parkway and Dairy Ashford are packed with energy-sector firms of every size. CityCentre adds retail and dining to the mix, making it a popular spot for after-work events and celebrations. Our mobile coffee bar is a regular presence in this part of town, pouring cold brew for morning meetings, all-day conferences, and employee appreciation events across the corridor.",
-    venues: [
-      "CityCentre Houston",
-      "Norris Conference Centers (CityCentre)",
-      "ConocoPhillips campus event spaces",
-      "CPEG Energy Corridor offices",
-      "BP Westlake campus",
-    ],
-    angle: "corporate",
+      "The Energy Corridor is one of Houston's densest pockets of corporate offices. Morning meetings, all-day conferences, employee appreciation events, team celebrations at CityCentre -- whatever the occasion, our mobile coffee bar brings craft cold brew and specialty drinks right to your building. We handle every detail so you can focus on your event.",
+    areaType: "Place",
   },
   {
     slug: "cypress",
@@ -206,17 +147,11 @@ export const suburbs: Suburb[] = [
     headline: "Coffee Catering in Cypress, TX",
     description:
       "Mobile espresso bar for events in Cypress, Bridgeland, and Towne Lake. Coffee catering for corporate gatherings, HOA events, and celebrations in NW Houston.",
+    subtitle:
+      "Mobile coffee bar for events in Cypress, Bridgeland, Towne Lake, and northwest Houston.",
     intro:
-      "Cypress is one of Houston's fastest-growing communities, and the master-planned neighborhoods like Bridgeland and Towne Lake are driving that growth. New corporate development is following the rooftops, bringing office space and retail to what used to be mostly residential. Our mobile coffee bar is a hit at Cypress community events, from Bridgeland's Central Park gatherings to grand openings at the Boardwalk at Towne Lake. We bring craft cold brew and specialty drinks to a part of Houston that's building something new.",
-    venues: [
-      "Boardwalk at Towne Lake",
-      "Bridgeland Central Park",
-      "Cypress Event Venue (Huffmeister)",
-      "Berry Center",
-      "Fairfield Inn Cypress Station",
-    ],
-    angle: "mixed",
-    neighborhoods: ["Bridgeland", "Towne Lake", "Cypress Station", "Fairfield"],
+      "Cypress is growing fast, and the community events are growing with it. From corporate gatherings and grand openings to HOA events and private celebrations in Bridgeland and Towne Lake, our mobile coffee bar brings craft cold brew and a professional setup to northwest Houston. All supplies included, travel included.",
+    areaType: "City",
   },
   {
     slug: "spring",
@@ -224,16 +159,11 @@ export const suburbs: Suburb[] = [
     headline: "Coffee Catering in Spring, TX",
     description:
       "Mobile espresso bar for corporate events and private celebrations in Spring, TX. Serving the ExxonMobil Spring campus, Old Town Spring, and Klein area.",
+    subtitle:
+      "Coffee catering for corporate events, private celebrations, and community gatherings in Spring and Klein.",
     intro:
-      "Spring sits at the intersection of Houston's corporate growth and small-town charm. The ExxonMobil Spring campus brought thousands of workers to the area, and the resulting development along the Grand Parkway has transformed this corner of north Houston. But Old Town Spring still holds onto its character, hosting festivals, markets, and private events in a setting that feels nothing like a corporate park. Our mobile coffee bar serves both worlds. Cold brew for the Monday morning all-hands, specialty drinks for the Saturday afternoon market.",
-    venues: [
-      "ExxonMobil Spring Campus",
-      "Old Town Spring event venues",
-      "The Woodhouse (Spring wedding venue)",
-      "TopGolf Spring (corporate outings)",
-      "Spring Creek Greenway events",
-    ],
-    angle: "corporate",
+      "Spring has a unique mix of major corporate campuses and small-town community events. Whether you're planning a large office gathering, a weekend market, or a private celebration, our mobile coffee bar brings craft cold brew and specialty drinks with a full professional setup. We come to you anywhere in the Spring and Klein area.",
+    areaType: "City",
   },
   {
     slug: "rice-village",
@@ -241,17 +171,11 @@ export const suburbs: Suburb[] = [
     headline: "Coffee Catering in Rice Village & the Museum District",
     description:
       "Mobile espresso catering near Rice University, the Museum District, and Hermann Park. Perfect for campus events, galas, and private celebrations in Houston.",
+    subtitle:
+      "Mobile coffee bar for campus events, galas, and private celebrations near Rice University and the Museum District.",
     intro:
-      "Rice Village and the Museum District sit at the cultural center of Houston. Between Rice University, Hermann Park, and the cluster of world-class museums along Binz and Main, this area draws a crowd that cares about quality and presentation. Our mobile coffee bar fits naturally into the neighborhood's mix of academic events, museum galas, and private celebrations. We've poured cold brew for Rice homecoming events, faculty receptions, and evening fundraisers at venues steps from campus. When the setting is this good, the coffee needs to match.",
-    venues: [
-      "Rice University campus event spaces",
-      "The Museum of Fine Arts, Houston",
-      "Hermann Park McGovern Centennial Gardens",
-      "Asia Society Texas Center",
-      "The Jung Center of Houston",
-    ],
-    angle: "mixed",
-    neighborhoods: ["Rice University", "Museum District", "Hermann Park", "Southgate"],
+      "Rice Village and the Museum District draw a crowd that cares about quality and presentation. From campus events and faculty receptions to museum galas and private celebrations, our mobile coffee bar fits naturally into the neighborhood. Craft cold brew, specialty drinks, and a setup that matches the setting.",
+    areaType: "Place",
   },
   {
     slug: "montrose",
@@ -259,17 +183,11 @@ export const suburbs: Suburb[] = [
     headline: "Coffee Catering in Montrose, Houston",
     description:
       "Mobile espresso bar for private events, art openings, and celebrations in Montrose, Houston. Craft coffee catering in Houston's most creative neighborhood.",
+    subtitle:
+      "Coffee catering for private events, art openings, and celebrations in Montrose.",
     intro:
-      "Montrose is Houston's creative heartbeat. The galleries along Westheimer, the Menil Collection, and the Rothko Chapel give this neighborhood a cultural density you won't find anywhere else in the city. It's also where Houston goes to celebrate. Our mobile coffee bar has set up at art openings, gallery pop-ups, private loft parties, and nonprofit fundraisers all over the neighborhood. Montrose events tend to have a point of view, and a craft cold brew station fits that energy better than a generic beverage setup ever could.",
-    venues: [
-      "The Menil Collection",
-      "Rothko Chapel",
-      "Station Theater",
-      "14 Pews (event and screening venue)",
-      "Hardy & Nance Studios",
-    ],
-    angle: "mixed",
-    neighborhoods: ["Neartown", "Cherryhurst", "Westheimer corridor"],
+      "Montrose is Houston's most creative neighborhood, and the events here tend to have a point of view. Art openings, gallery pop-ups, nonprofit fundraisers, private celebrations -- our mobile coffee bar fits that energy. Craft cold brew and specialty drinks with a clean, professional setup that works in any venue.",
+    areaType: "Place",
   },
 ];
 

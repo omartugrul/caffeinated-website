@@ -29,6 +29,14 @@ export const metadata: Metadata = {
     "coffee cart for office Houston",
     "mobile espresso cart Houston",
     "book a barista Houston",
+    "book a barista for corporate event Houston",
+    "mobile espresso cart for wedding Houston TX",
+    "office coffee catering near me",
+    "coffee truck for company party Houston",
+    "how much does coffee catering cost Houston",
+    "cold brew catering Houston",
+    "coffee cart for corporate event Houston",
+    "event coffee service Houston TX",
   ],
   openGraph: {
     title: "Caffeinated | Houston's Mobile Espresso Bar",
@@ -62,20 +70,38 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "FoodEstablishment",
+  "@id": `${siteUrl}/#business`,
   name: "Caffeinated",
   description:
     "Mobile espresso cart for corporate events, weddings, and private functions in Houston, TX.",
   url: siteUrl,
+  email: "hello@caffeinatedhtx.com",
   telephone: "", // TODO: Add phone number
-  areaServed: {
-    "@type": "City",
-    name: "Houston",
-    containedInPlace: {
-      "@type": "State",
-      name: "Texas",
-    },
+  image: `${siteUrl}/opengraph-image`,
+  sameAs: [
+    "https://instagram.com/caffeinated",
+    "https://tiktok.com/@caffeinated",
+  ],
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Houston",
+    addressRegion: "TX",
+    addressCountry: "US",
   },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 29.7604,
+    longitude: -95.3698,
+  },
+  areaServed: [
+    { "@type": "City", name: "Houston" },
+    { "@type": "City", name: "Katy" },
+    { "@type": "City", name: "Sugar Land" },
+    { "@type": "City", name: "The Woodlands" },
+    { "@type": "City", name: "Pearland" },
+    { "@type": "City", name: "Clear Lake" },
+  ],
   serviceArea: {
     "@type": "GeoCircle",
     geoMidpoint: {
@@ -86,12 +112,43 @@ const jsonLd = {
     geoRadius: "80467", // ~50 miles in meters
   },
   priceRange: "$$",
+  currenciesAccepted: "USD",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Coffee Catering Packages",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        name: "The Standard",
+        description: "Professional barista, full coffee bar, 2 hours, up to 75 drinks",
+        price: "499",
+        priceCurrency: "USD",
+      },
+      {
+        "@type": "Offer",
+        name: "The Full Spread",
+        description: "Custom drink menu, branded cups, 3 hours, up to 150 drinks",
+        price: "899",
+        priceCurrency: "USD",
+      },
+      {
+        "@type": "Offer",
+        name: "The VIP",
+        description: "Styled cart, social media content, 4 hours, unlimited drinks",
+        price: "1499",
+        priceCurrency: "USD",
+      },
+    ],
+  },
   knowsAbout: [
     "Coffee Catering",
     "Mobile Espresso Bar",
     "Corporate Event Catering",
     "Wedding Coffee Service",
     "Office Coffee Catering",
+    "Cold Brew Catering",
+    "Mobile Coffee Cart",
+    "Event Barista Service",
   ],
 };
 

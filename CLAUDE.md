@@ -23,6 +23,11 @@ Mobile coffee cart landing page in Houston, TX. Single-page, conversion-focused 
 - Custom colors go in `@theme inline` in `globals.css` with `--color-` prefix. Do NOT use `:root` vars — they won't generate utility classes.
 - `next/font` CSS vars don't work as Tailwind classes. Use inline `style={{ fontFamily: "var(--font-plus-jakarta)" }}`.
 
+## Content Rules
+- Never create fake testimonials, reviews, or social proof. Only use real quotes from real customers. Placeholder testimonials are not acceptable.
+- Customer-facing copy uses "coffee bar" / "cold brew" — not "espresso." Metadata and JSON-LD can use "espresso" for SEO.
+- No em dashes in website copy.
+
 ## Key Patterns
 - `'use client'` on components using Framer Motion, useState, or browser APIs
 - Anchor navigation with smooth scroll to section IDs
