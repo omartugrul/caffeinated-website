@@ -13,8 +13,8 @@ export const packages: PackageItem[] = [
     description: "Perfect for team lunches and small office events.",
     features: [
       "2 hours of service",
-      "Up to 75 drinks",
-      "Set drink menu",
+      "Up to 50 drinks",
+      "Set menu — choose 2 cold brew drinks",
     ],
   },
   {
@@ -23,7 +23,7 @@ export const packages: PackageItem[] = [
     description: "Built for corporate events and celebrations.",
     features: [
       "3 hours of service",
-      "Up to 150 drinks",
+      "Up to 100 drinks",
       "Custom drink menu",
       "Branded cups with your logo",
     ],
@@ -35,7 +35,7 @@ export const packages: PackageItem[] = [
     description: "For large events, product launches, and premium occasions.",
     features: [
       "4 hours of service",
-      "Up to 250 drinks",
+      "Up to 200 drinks",
       "Custom drink menu",
       "Branded cups with your logo",
       "Cart styled to match your event",
@@ -47,7 +47,6 @@ export const packages: PackageItem[] = [
 export const packagesBoilerplate: string[] = [
   "Professional barista",
   "Full cart setup + teardown",
-  "All supplies — cups, lids, sleeves, napkins, stirrers",
   "Houston metro travel included",
   "No deposit until your date is confirmed",
 ];

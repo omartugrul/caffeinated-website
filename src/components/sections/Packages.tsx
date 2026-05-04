@@ -7,8 +7,8 @@ import { Section, SectionHeading, Button } from "@/components/ui";
 export default function Packages() {
   return (
     <Section id="packages" bg="white">
-      <SectionHeading subtitle="Straightforward pricing. Custom packages available for recurring bookings.">
-        Choose Your Package
+      <SectionHeading subtitle="Custom packages available for recurring bookings.">
+        Simple Pricing. No Surprises.
       </SectionHeading>
       <div className="mt-16 grid gap-8 md:grid-cols-3 md:items-stretch">
         {packages.map((pkg, i) => (
@@ -35,7 +35,6 @@ export default function Packages() {
             </p>
             <p className="mt-4">
               <span className="text-3xl font-bold text-espresso">{pkg.price}</span>
-              <span className="ml-1 text-sm text-espresso/40">starting</span>
             </p>
             <ul className="mt-6 space-y-3 flex-1">
               {pkg.features.map((feature) => (
@@ -68,20 +67,24 @@ export default function Packages() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.3 }}
-        className="mt-12 rounded-2xl border border-espresso/8 bg-cream/40 px-8 py-6"
+        className="mt-12"
       >
-        <p className="text-xs font-semibold uppercase tracking-widest text-espresso/40 mb-4">
-          Every package includes
-        </p>
-        <ul className="flex flex-wrap gap-x-8 gap-y-2">
+        <div className="flex items-center gap-4 mb-6">
+          <div className="h-px flex-1 bg-espresso/10" />
+          <p className="text-sm font-semibold text-espresso/60">
+            Every package includes
+          </p>
+          <div className="h-px flex-1 bg-espresso/10" />
+        </div>
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
           {packagesBoilerplate.map((item) => (
-            <li key={item} className="flex items-center gap-2 text-sm text-espresso/70">
-              <span className="text-amber">&#10003;</span>
+            <li key={item} className="flex items-center gap-2.5 text-sm text-espresso/70">
+              <span className="shrink-0 w-4 h-4 rounded-full bg-amber/15 flex items-center justify-center text-amber text-xs">&#10003;</span>
               {item}
             </li>
           ))}
         </ul>
-        <p className="mt-4 text-xs text-espresso/40">{packagesNote}</p>
+        <p className="mt-6 text-center text-xs text-espresso/40">{packagesNote}</p>
       </motion.div>
     </Section>
   );
