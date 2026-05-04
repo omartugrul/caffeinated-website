@@ -10,6 +10,7 @@ Mobile coffee cart landing page in Houston, TX. Single-page, conversion-focused 
 - `docs/seo-competitive-analysis.md` — SEO competitive research
 - `docs/decisions.md` — Design decisions, research findings, and rationale
 - `docs/roadmap.md` — Phased roadmap (PostHog, Attio, Clay, content flywheel, etc.)
+- `docs/conversion-playbook.md` — Research-grounded principles for landing pages, forms, and email sequences. Read this whenever building or evaluating any conversion touchpoint (form UX, CTA copy, email sequences, social proof placement, offer framing).
 
 ## Tech Stack
 - Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4, Framer Motion 12
