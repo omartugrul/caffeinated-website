@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { Section, SectionHeading } from "@/components/ui";
+import { Section, SectionHeading, Button } from "@/components/ui";
 
 const steps = [
   {
@@ -83,7 +83,7 @@ function StepItem({
         )}
       </div>
 
-      <motion.div className="flex-1 pb-12" style={{ opacity, y }}>
+      <motion.div className="flex-1 pb-6 md:pb-12" style={{ opacity, y }}>
         <h3 className="text-lg font-semibold text-espresso">{step.title}</h3>
         <p className="mt-2 text-[0.95rem] text-espresso/60 leading-relaxed">
           {step.description}
@@ -115,14 +115,14 @@ export default function HowItWorks() {
 
       <div
         ref={sectionRef}
-        className="mt-16 grid md:grid-cols-2 gap-8 md:gap-16 items-center"
+        className="mt-10 md:mt-16 grid md:grid-cols-2 gap-8 md:gap-16 items-center"
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.97 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="rounded-2xl overflow-hidden shadow-lg"
+          className="hidden md:block rounded-2xl overflow-hidden shadow-lg"
         >
           <Image
             src="/photos/team-with-cart.jpeg"
@@ -144,6 +144,11 @@ export default function HowItWorks() {
             </li>
           ))}
         </ol>
+      </div>
+
+      <div className="mt-12 text-center">
+        <Button href="#contact">Book My Event</Button>
+        <p className="mt-2 text-xs text-espresso/40">No commitment &middot; Same-day response</p>
       </div>
     </Section>
   );

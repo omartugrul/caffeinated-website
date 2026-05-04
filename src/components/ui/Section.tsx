@@ -32,7 +32,7 @@ export default function Section({
   return (
     <section
       id={id}
-      className={`py-24 px-6 ${bgClasses[bg]} ${className}`.trim()}
+      className={`py-12 px-6 md:py-24 ${bgClasses[bg]} ${className}`.trim()}
     >
       <div className={`mx-auto ${maxWidthClasses[maxWidth]}`}>{children}</div>
     </section>

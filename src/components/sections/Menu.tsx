@@ -19,7 +19,7 @@ export default function Menu() {
         </SectionHeading>
       </motion.div>
 
-      <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <div className="mt-10 md:mt-16 grid grid-cols-1 gap-4 sm:grid-cols-2">
         {menuCategories.map((category, i) => (
           <motion.div
             key={category.name}

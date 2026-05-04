@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Section, SectionHeading } from "@/components/ui";
+import { Section, SectionHeading, Button } from "@/components/ui";
 
 const photos = [
   { src: "/photos/event-cart-customers.jpeg", alt: "Coffee cart serving customers at an event" },
@@ -19,7 +19,7 @@ export default function Gallery() {
       <SectionHeading subtitle="From office lobbies to rooftop weddings. Here's what it looks like when we show up.">
         From Our Events
       </SectionHeading>
-      <div className="mt-16 grid grid-cols-2 gap-4 sm:grid-cols-3">
+      <div className="mt-10 md:mt-16 grid grid-cols-2 gap-4 sm:grid-cols-3">
         {photos.map((photo, i) => (
           <motion.div
             key={photo.src}
@@ -38,6 +38,11 @@ export default function Gallery() {
             />
           </motion.div>
         ))}
+      </div>
+
+      <div className="mt-10 text-center">
+        <Button href="#contact" variant="amber">Book My Event &rarr;</Button>
+        <p className="mt-2 text-xs text-espresso/40">No commitment &middot; Same-day response</p>
       </div>
     </Section>
   );

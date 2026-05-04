@@ -51,8 +51,8 @@ export const packages: PackageItem[] = [
 export const packagesBoilerplate: string[] = [
   "Professional barista",
   "Full cart setup + teardown",
+  "All supplies included",
   "Houston metro travel included",
-  "No deposit until your date is confirmed",
 ];
 
 export const packagesNote =

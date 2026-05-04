@@ -10,7 +10,7 @@ export default function Packages() {
       <SectionHeading subtitle="Custom packages available for recurring bookings.">
         Simple Pricing. No Surprises.
       </SectionHeading>
-      <div className="mt-16 grid gap-8 md:grid-cols-3 md:items-stretch">
+      <div className="mt-10 md:mt-16 grid gap-8 md:grid-cols-3 md:items-stretch">
         {packages.map((pkg, i) => (
           <motion.div
             key={pkg.name}
@@ -67,7 +67,7 @@ export default function Packages() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.3 }}
-        className="mt-12"
+        className="mt-8 md:mt-12"
       >
         <div className="flex items-center gap-4 mb-6">
           <div className="h-px flex-1 bg-espresso/10" />
