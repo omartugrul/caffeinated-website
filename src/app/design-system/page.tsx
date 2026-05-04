@@ -9,7 +9,6 @@ import {
   Packages,
   Menu,
   Gallery,
-  Testimonials,
   FAQ,
   Contact,
 } from "@/components/sections";
@@ -65,7 +64,6 @@ const sections = [
   { id: "comp-packages", label: "Packages" },
   { id: "comp-menu", label: "Menu" },
   { id: "comp-gallery", label: "Gallery" },
-  { id: "comp-testimonials", label: "Testimonials" },
   { id: "comp-faq", label: "FAQ" },
   { id: "comp-contact", label: "Contact" },
   { id: "comp-footer", label: "Footer" },
@@ -416,12 +414,6 @@ export default function DesignSystemPage() {
         <div id="comp-gallery">
           <ComponentSection name="Gallery" file="components/sections/Gallery.tsx">
             <Gallery />
-          </ComponentSection>
-        </div>
-
-        <div id="comp-testimonials">
-          <ComponentSection name="Testimonials" file="components/sections/Testimonials.tsx">
-            <Testimonials />
           </ComponentSection>
         </div>
 

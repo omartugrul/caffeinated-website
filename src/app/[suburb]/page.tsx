@@ -71,8 +71,7 @@ export default async function SuburbPage({
     image: `${siteUrl}/opengraph-image`,
     email: "hello@caffeinatedhtx.com",
     sameAs: [
-      "https://instagram.com/caffeinated",
-      "https://tiktok.com/@caffeinated",
+      "https://www.instagram.com/caffeinatedhtx/",
     ],
     areaServed: {
       "@type": suburb.areaType,

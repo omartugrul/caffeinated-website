@@ -138,7 +138,7 @@ export const suburbs: Suburb[] = [
     subtitle:
       "Coffee catering for corporate events and office gatherings along Eldridge Parkway and the Energy Corridor.",
     intro:
-      "The Energy Corridor is one of Houston's densest pockets of corporate offices. Morning meetings, all-day conferences, employee appreciation events, team celebrations at CityCentre -- whatever the occasion, our mobile coffee bar brings craft cold brew and specialty drinks right to your building. We handle every detail so you can focus on your event.",
+      "The Energy Corridor is one of Houston's densest pockets of corporate offices. Morning meetings, all-day conferences, employee appreciation events, team celebrations at CityCentre. Whatever the occasion, our mobile coffee bar brings craft cold brew and specialty drinks right to your building. We handle every detail so you can focus on your event.",
     areaType: "Place",
   },
   {
@@ -186,7 +186,7 @@ export const suburbs: Suburb[] = [
     subtitle:
       "Coffee catering for private events, art openings, and celebrations in Montrose.",
     intro:
-      "Montrose is Houston's most creative neighborhood, and the events here tend to have a point of view. Art openings, gallery pop-ups, nonprofit fundraisers, private celebrations -- our mobile coffee bar fits that energy. Craft cold brew and specialty drinks with a clean, professional setup that works in any venue.",
+      "Montrose is Houston's most creative neighborhood, and the events here tend to have a point of view. Art openings, gallery pop-ups, nonprofit fundraisers, private celebrations. Our mobile coffee bar fits that energy. Craft cold brew and specialty drinks with a clean, professional setup that works in any venue.",
     areaType: "Place",
   },
 ];

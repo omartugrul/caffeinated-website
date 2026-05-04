@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { siteUrl } from "@/content/site";
+import { packages } from "@/content/packages";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -80,8 +81,7 @@ const jsonLd = {
   telephone: "", // TODO: Add phone number
   image: `${siteUrl}/opengraph-image`,
   sameAs: [
-    "https://instagram.com/caffeinated",
-    "https://tiktok.com/@caffeinated",
+    "https://www.instagram.com/caffeinatedhtx/",
   ],
   address: {
     "@type": "PostalAddress",
@@ -116,29 +116,13 @@ const jsonLd = {
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Coffee Catering Packages",
-    itemListElement: [
-      {
-        "@type": "Offer",
-        name: "The Standard",
-        description: "Professional barista, full coffee bar, 2 hours, up to 75 drinks",
-        price: "499",
-        priceCurrency: "USD",
-      },
-      {
-        "@type": "Offer",
-        name: "The Full Spread",
-        description: "Custom drink menu, branded cups, 3 hours, up to 150 drinks",
-        price: "899",
-        priceCurrency: "USD",
-      },
-      {
-        "@type": "Offer",
-        name: "The VIP",
-        description: "Styled cart, social media content, 4 hours, unlimited drinks",
-        price: "1499",
-        priceCurrency: "USD",
-      },
-    ],
+    itemListElement: packages.map((p) => ({
+      "@type": "Offer",
+      name: p.name,
+      description: p.description,
+      price: p.price.replace(/[$,]/g, ""),
+      priceCurrency: "USD",
+    })),
   },
   knowsAbout: [
     "Coffee Catering",

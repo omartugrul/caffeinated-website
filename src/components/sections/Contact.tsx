@@ -73,10 +73,17 @@ const stepVariants = {
   exit: { opacity: 0, x: -20 },
 };
 
+const loadingMessages = [
+  "Reviewing your event details",
+  "Checking availability",
+  "Putting together your quote",
+  "Almost there",
+];
+
 function getMinDate() {
   const d = new Date();
   d.setDate(d.getDate() + 3);
-  return d.toISOString().split("T")[0];
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
 
 export default function Contact() {
@@ -84,13 +91,6 @@ export default function Contact() {
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState(false);
   const [loadingIndex, setLoadingIndex] = useState(0);
-
-  const loadingMessages = [
-    "Reviewing your event details",
-    "Checking availability",
-    "Putting together your quote",
-    "Almost there",
-  ];
 
   useEffect(() => {
     if (!submitting) return;
@@ -316,7 +316,7 @@ export default function Contact() {
                   {...register("date", {
                     required: "Please select a date",
                     validate: (v) => {
-                      const selected = new Date(v);
+                      const selected = new Date(v + "T00:00:00");
                       const min = new Date();
                       min.setDate(min.getDate() + 3);
                       min.setHours(0, 0, 0, 0);
@@ -438,9 +438,17 @@ export default function Contact() {
                   You&apos;re all set, {form.name.split(" ")[0]}!
                 </h3>
                 <p className="mt-3 text-espresso/60 max-w-sm">
-                  We&apos;ll review your request and send a custom quote to <span className="text-espresso font-medium">{form.email}</span>.
+                  Your custom quote will be in <span className="text-espresso font-medium">{form.email}</span> within 2 hours.
                 </p>
-                {/* TODO: add "check out our menu" or Instagram link once those are ready */}
+                <p className="mt-2 text-sm text-espresso/40 max-w-sm">
+                  While you wait, check out our full menu below.
+                </p>
+                <a
+                  href="#menu"
+                  className="mt-4 inline-block text-sm font-medium text-amber hover:underline"
+                >
+                  See the menu &darr;
+                </a>
               </motion.div>
             )}
           </AnimatePresence>
