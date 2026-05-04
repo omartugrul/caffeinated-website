@@ -5,8 +5,8 @@
 Mobile coffee cart landing page in Houston, TX. Single-page, conversion-focused site driving event bookings.
 
 ## Project Docs
-- `docs/concept.md` — Source of truth (business, packages, tech stack, GTM)
-- `docs/brand-brief.md` — Brand and design direction
+- `docs/concept.md` — Source of truth (business, packages, tech stack, GTM). Read before changing packages, pricing, service descriptions, or anything business-model-facing.
+- `docs/brand-brief.md` — Brand and design direction. Read before writing customer-facing copy, naming things, or making visual/design decisions.
 - `docs/seo-competitive-analysis.md` — SEO competitive research
 - `docs/decisions.md` — Design decisions, research findings, and rationale
 - `docs/roadmap.md` — Phased roadmap (PostHog, Attio, Clay, content flywheel, etc.)
@@ -27,7 +27,7 @@ Mobile coffee cart landing page in Houston, TX. Single-page, conversion-focused 
 ## Content Rules
 - Never create fake testimonials, reviews, or social proof. Only use real quotes from real customers. Placeholder testimonials are not acceptable.
 - Customer-facing copy uses "coffee bar" / "cold brew" — not "espresso." Metadata and JSON-LD can use "espresso" for SEO.
-- No em dashes in website copy.
+- No em dashes in website copy. This applies to every string that renders on-page: `content/*.ts` string values, component JSX text, and copy props. Internal docs like `roadmap.md` are exempt.
 
 ## Key Patterns
 - `'use client'` on components using Framer Motion, useState, or browser APIs
@@ -53,5 +53,10 @@ When making changes, keep these in sync:
 - **Adding images**: Always include descriptive alt text.
 - **OG image**: Generated via `app/opengraph-image.tsx` using `ImageResponse` from `next/og`. Twitter card reuses it via `app/twitter-image.tsx`. To change the OG image, edit `opengraph-image.tsx` -- no metadata changes needed (file convention auto-injects).
 
+## Forms
+- Contact form submits via Formspree (endpoint already configured in `src/components/sections/Contact.tsx`). Do not change the endpoint without instruction.
+- **Never submit the contact form** — Formspree is on a limited plan. If form interaction testing is needed, mock it first or inspect state/validation without submitting.
+
 ## Commit Messages
 - Plain and concise. No emojis, no markdown, no Claude attribution.
+- When the user says "commit," always commit and push to remote.

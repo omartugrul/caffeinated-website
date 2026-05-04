@@ -16,14 +16,14 @@ export const packages: PackageItem[] = [
     features: [
       "2 hours of service",
       "Up to 50 drinks",
-      "Set menu — choose 2 cold brew drinks",
+      "Set menu: choose 2 cold brew drinks",
     ],
   },
   {
     name: "The Full Spread",
     price: "$899",
     description: "Built for corporate events and celebrations.",
-    formDescription: "Our most-booked — works for most events.",
+    formDescription: "Our most-booked package, works for most events.",
     features: [
       "3 hours of service",
       "Up to 100 drinks",
@@ -56,4 +56,4 @@ export const packagesBoilerplate: string[] = [
 ];
 
 export const packagesNote =
-  "Need more drinks? Every package can be extended at $8/cup — just let us know your expected headcount when booking.";
+  "Need more drinks? Every package can be extended at $8/cup. Just let us know your expected headcount when booking.";
