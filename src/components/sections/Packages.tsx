@@ -76,7 +76,7 @@ export default function Packages() {
           </p>
           <div className="h-px flex-1 bg-espresso/10" />
         </div>
-        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+        <ul className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {packagesBoilerplate.map((item) => (
             <li key={item} className="flex items-center gap-2.5 text-sm text-espresso/70">
               <span className="shrink-0 w-4 h-4 rounded-full bg-amber/15 flex items-center justify-center text-amber text-xs">&#10003;</span>

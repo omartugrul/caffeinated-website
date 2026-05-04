@@ -2,6 +2,7 @@ export interface PackageItem {
   name: string;
   price: string;
   description: string;
+  formDescription: string;
   features: string[];
   highlighted?: boolean;
 }
@@ -11,6 +12,7 @@ export const packages: PackageItem[] = [
     name: "The Essentials",
     price: "$499",
     description: "Perfect for team lunches and small office events.",
+    formDescription: "Great for smaller, more intimate events.",
     features: [
       "2 hours of service",
       "Up to 50 drinks",
@@ -21,6 +23,7 @@ export const packages: PackageItem[] = [
     name: "The Full Spread",
     price: "$899",
     description: "Built for corporate events and celebrations.",
+    formDescription: "Our most-booked — works for most events.",
     features: [
       "3 hours of service",
       "Up to 100 drinks",
@@ -33,6 +36,7 @@ export const packages: PackageItem[] = [
     name: "The Experience",
     price: "$1,799",
     description: "For large events, product launches, and premium occasions.",
+    formDescription: "For large or premium events that call for extra polish.",
     features: [
       "4 hours of service",
       "Up to 200 drinks",

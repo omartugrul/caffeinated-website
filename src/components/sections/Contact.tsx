@@ -57,7 +57,7 @@ const packageOptions = [
     value: p.name,
     label: p.name,
     price: p.price,
-    description: p.description,
+    description: p.formDescription,
   })),
   {
     value: "not-sure",
