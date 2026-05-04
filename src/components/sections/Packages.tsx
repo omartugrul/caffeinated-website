@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { packages } from "@/content/packages";
+import { packages, packagesBoilerplate, packagesNote } from "@/content/packages";
 import { Section, SectionHeading, Button } from "@/components/ui";
 
 export default function Packages() {
@@ -48,17 +48,41 @@ export default function Packages() {
                 </li>
               ))}
             </ul>
-            <Button
-              href="#contact"
-              variant={pkg.highlighted ? "amber" : "primary"}
-              size="full"
-              className="mt-8"
-            >
-              Get a Quote
-            </Button>
+            <div className="mt-8 flex flex-col items-center gap-1.5">
+              <Button
+                href="#contact"
+                variant={pkg.highlighted ? "amber" : "primary"}
+                size="full"
+              >
+                Get My Quote
+              </Button>
+              <span className="text-xs text-espresso/30">No commitment · Same-day response</span>
+            </div>
           </motion.div>
         ))}
       </div>
+
+      {/* What's always included */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        className="mt-12 rounded-2xl border border-espresso/8 bg-cream/40 px-8 py-6"
+      >
+        <p className="text-xs font-semibold uppercase tracking-widest text-espresso/40 mb-4">
+          Every package includes
+        </p>
+        <ul className="flex flex-wrap gap-x-8 gap-y-2">
+          {packagesBoilerplate.map((item) => (
+            <li key={item} className="flex items-center gap-2 text-sm text-espresso/70">
+              <span className="text-amber">&#10003;</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+        <p className="mt-4 text-xs text-espresso/40">{packagesNote}</p>
+      </motion.div>
     </Section>
   );
 }

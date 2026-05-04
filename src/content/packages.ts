@@ -8,16 +8,13 @@ export interface PackageItem {
 
 export const packages: PackageItem[] = [
   {
-    name: "The Standard",
+    name: "The Essentials",
     price: "$499",
     description: "Perfect for team lunches and small office events.",
     features: [
-      "Professional barista + full coffee bar setup",
       "2 hours of service",
       "Up to 75 drinks",
-      "Classic drink menu",
-      "All supplies included",
-      "Setup & teardown handled",
+      "Set drink menu",
     ],
   },
   {
@@ -25,24 +22,35 @@ export const packages: PackageItem[] = [
     price: "$899",
     description: "Built for corporate events and celebrations.",
     features: [
-      "Everything in The Standard",
       "3 hours of service",
       "Up to 150 drinks",
-      "Custom drink menu for your event",
+      "Custom drink menu",
       "Branded cups with your logo",
     ],
     highlighted: true,
   },
   {
-    name: "The VIP",
-    price: "$1,499",
-    description: "For weddings, galas, and premium occasions.",
+    name: "The Experience",
+    price: "$1,799",
+    description: "For large events, product launches, and premium occasions.",
     features: [
-      "Everything in The Full Spread",
       "4 hours of service",
-      "Unlimited drinks",
-      "Styled cart setup to match your event",
-      "Social media content from the event",
+      "Up to 250 drinks",
+      "Custom drink menu",
+      "Branded cups with your logo",
+      "Cart styled to match your event",
+      "Custom printed event signage",
     ],
   },
 ];
+
+export const packagesBoilerplate: string[] = [
+  "Professional barista",
+  "Full cart setup + teardown",
+  "All supplies — cups, lids, sleeves, napkins, stirrers",
+  "Houston metro travel included",
+  "No deposit until your date is confirmed",
+];
+
+export const packagesNote =
+  "Need more drinks? Every package can be extended at $8/cup — just let us know your expected headcount when booking.";

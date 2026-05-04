@@ -1,14 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { motion, AnimatePresence } from "framer-motion";
 import { Section, SectionHeading, Button, Input } from "@/components/ui";
+import { packages } from "@/content/packages";
 
 interface FormData {
   eventType: string;
+  packageId: string;
   date: string;
-  guestCount: string;
   name: string;
   email: string;
   phone: string;
@@ -51,6 +52,21 @@ const eventTypes = [
   { value: "other", label: "Other" },
 ];
 
+const packageOptions = [
+  ...packages.map((p) => ({
+    value: p.name,
+    label: p.name,
+    price: p.price,
+    description: p.description,
+  })),
+  {
+    value: "not-sure",
+    label: "Not sure yet",
+    price: "Let's talk",
+    description: "Tell us about your event and we'll find the right fit.",
+  },
+];
+
 const stepVariants = {
   enter: { opacity: 0, x: 20 },
   center: { opacity: 1, x: 0 },
@@ -65,6 +81,25 @@ function getMinDate() {
 
 export default function Contact() {
   const [step, setStep] = useState(0);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
+  const [loadingIndex, setLoadingIndex] = useState(0);
+
+  const loadingMessages = [
+    "Reviewing your event details",
+    "Checking availability",
+    "Putting together your quote",
+    "Almost there",
+  ];
+
+  useEffect(() => {
+    if (!submitting) return;
+    setLoadingIndex(0);
+    const interval = setInterval(() => {
+      setLoadingIndex((i) => Math.min(i + 1, loadingMessages.length - 1));
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [submitting]);
 
   const {
     register,
@@ -76,8 +111,8 @@ export default function Contact() {
     mode: "onTouched",
     defaultValues: {
       eventType: "",
+      packageId: "",
       date: "",
-      guestCount: "",
       name: "",
       email: "",
       phone: "",
@@ -87,15 +122,47 @@ export default function Contact() {
   const form = watch();
 
   const advanceToStep1 = async () => {
-    const valid = await trigger(["eventType", "date", "guestCount"]);
+    const valid = await trigger(["eventType", "packageId", "date"]);
     if (valid) setStep(1);
   };
 
   const handleSubmit = async () => {
     const valid = await trigger(["name", "email", "phone"]);
-    if (valid) {
-      // TODO: POST to /api/submit-quote -> Attio + Resend
-      setStep(2);
+    if (!valid) return;
+
+    setSubmitting(true);
+    setSubmitError(false);
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 8000);
+
+    try {
+      const res = await fetch("https://formspree.io/f/xdabealj", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        signal: controller.signal,
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          event_type: form.eventType,
+          package: form.packageId,
+          date: form.date,
+          _subject: `Quote request from ${form.name}`,
+          _replyto: form.email,
+        }),
+      });
+
+      if (res.ok) {
+        setStep(2);
+      } else {
+        setSubmitError(true);
+      }
+    } catch {
+      setSubmitError(true);
+    } finally {
+      clearTimeout(timeout);
+      setSubmitting(false);
     }
   };
 
@@ -107,7 +174,7 @@ export default function Contact() {
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <SectionHeading subtitleColor="text-espresso/60" subtitle="Tell us about your event. We respond within 2 hours with a custom quote.">
+        <SectionHeading subtitleColor="text-espresso/60" subtitle="Tell us about your event and we'll send you a custom quote.">
           Let&apos;s Plan Your Event
         </SectionHeading>
 
@@ -127,8 +194,44 @@ export default function Contact() {
 
         <form className="mt-8 min-h-[320px]" noValidate onSubmit={(e) => e.preventDefault()}>
           <AnimatePresence mode="wait">
+            {/* Loading */}
+            {submitting && (
+              <motion.div
+                key="loading"
+                variants={stepVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.25 }}
+                className="flex flex-col items-center justify-center py-16 gap-5"
+              >
+                <span className="flex gap-1">
+                  {[0, 1, 2].map((i) => (
+                    <motion.span
+                      key={i}
+                      animate={{ opacity: [0.2, 1, 0.2] }}
+                      transition={{ repeat: Infinity, duration: 1.2, delay: i * 0.2, ease: "easeInOut" }}
+                      className="w-2 h-2 rounded-full bg-amber inline-block"
+                    />
+                  ))}
+                </span>
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={loadingIndex}
+                    initial={{ opacity: 0, y: 4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -4 }}
+                    transition={{ duration: 0.3 }}
+                    className="text-sm text-espresso/50"
+                  >
+                    {loadingMessages[loadingIndex]}
+                  </motion.span>
+                </AnimatePresence>
+              </motion.div>
+            )}
+
             {/* Step 1: Event Details */}
-            {step === 0 && (
+            {!submitting && step === 0 && (
               <motion.div
                 key="step0"
                 variants={stepVariants}
@@ -171,35 +274,56 @@ export default function Contact() {
                   )}
                 </div>
 
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <Input
-                    label="Event date"
-                    type="date"
-                    min={getMinDate()}
-                    error={errors.date?.message}
-                    {...register("date", {
-                      required: "Please select a date",
-                      validate: (v) => {
-                        const selected = new Date(v);
-                        const min = new Date();
-                        min.setDate(min.getDate() + 3);
-                        min.setHours(0, 0, 0, 0);
-                        return selected >= min || "Date must be at least 3 days out";
-                      },
-                    })}
-                  />
-                  <Input
-                    label="Guest count"
-                    type="number"
-                    placeholder="e.g. 75"
-                    error={errors.guestCount?.message}
-                    {...register("guestCount", {
-                      required: "Please enter a guest count",
-                      min: { value: 1, message: "Must be at least 1" },
-                      max: { value: 10000, message: "Please contact us directly for 10,000+" },
-                    })}
-                  />
+                <div>
+                  <p className="text-sm font-medium text-espresso mb-3" id="package-label">Which package fits best?</p>
+                  <input type="hidden" {...register("packageId", { required: true })} />
+                  <div role="radiogroup" aria-labelledby="package-label" className="grid grid-cols-2 gap-3">
+                    {packageOptions.map((pkg) => (
+                      <button
+                        key={pkg.value}
+                        type="button"
+                        role="radio"
+                        aria-checked={form.packageId === pkg.value}
+                        onClick={() => setValue("packageId", pkg.value, { shouldValidate: true })}
+                        className={`rounded-xl border px-4 py-3 text-sm text-left transition-all cursor-pointer ${
+                          form.packageId === pkg.value
+                            ? "border-amber bg-amber/5"
+                            : errors.packageId
+                              ? "border-red-300 hover:border-espresso/30"
+                              : "border-espresso/10 hover:border-espresso/30"
+                        }`}
+                      >
+                        <div className="font-medium text-espresso text-sm">{pkg.label}</div>
+                        <div className={`text-xs font-semibold mt-0.5 mb-1 ${
+                          form.packageId === pkg.value ? "text-amber" : "text-espresso/40"
+                        }`}>
+                          {pkg.price}
+                        </div>
+                        <div className="text-xs text-espresso/50 leading-snug">{pkg.description}</div>
+                      </button>
+                    ))}
+                  </div>
+                  {errors.packageId && (
+                    <p className="mt-2 text-xs text-red-500">Please select a package</p>
+                  )}
                 </div>
+
+                <Input
+                  label="Event date"
+                  type="date"
+                  min={getMinDate()}
+                  error={errors.date?.message}
+                  {...register("date", {
+                    required: "Please select a date",
+                    validate: (v) => {
+                      const selected = new Date(v);
+                      const min = new Date();
+                      min.setDate(min.getDate() + 3);
+                      min.setHours(0, 0, 0, 0);
+                      return selected >= min || "Date must be at least 3 days out";
+                    },
+                  })}
+                />
 
                 <Button
                   type="button"
@@ -213,7 +337,7 @@ export default function Contact() {
             )}
 
             {/* Step 2: Contact Info */}
-            {step === 1 && (
+            {!submitting && step === 1 && (
               <motion.div
                 key="step1"
                 variants={stepVariants}
@@ -254,11 +378,11 @@ export default function Contact() {
 
                 <Input
                   label="Phone"
-                  optional
                   type="tel"
-                  placeholder="For a faster response"
+                  placeholder="(713) 555-0100"
                   error={errors.phone?.message}
                   {...register("phone", {
+                    required: "Please enter your phone number",
                     pattern: {
                       value: /^[+]?[\d\s()-]{7,20}$/,
                       message: "Please enter a valid phone number",
@@ -266,11 +390,18 @@ export default function Contact() {
                   })}
                 />
 
+                {submitError && (
+                  <p className="text-xs text-red-500 text-center">
+                    Something went wrong. Please try again or reach out on Instagram.
+                  </p>
+                )}
+
                 <div className="flex gap-3 mt-2">
                   <Button
                     type="button"
                     variant="outline"
                     onClick={() => setStep(0)}
+                    disabled={submitting}
                   >
                     Back
                   </Button>
@@ -279,15 +410,16 @@ export default function Contact() {
                     onClick={handleSubmit}
                     size="full"
                     className="flex-1"
+                    disabled={submitting}
                   >
-                    Get My Quote
+                    {submitting ? "Sending..." : "Get My Quote"}
                   </Button>
                 </div>
               </motion.div>
             )}
 
             {/* Step 3: Confirmation */}
-            {step === 2 && (
+            {!submitting && step === 2 && (
               <motion.div
                 key="step2"
                 variants={stepVariants}
@@ -306,8 +438,9 @@ export default function Contact() {
                   You&apos;re all set, {form.name.split(" ")[0]}!
                 </h3>
                 <p className="mt-3 text-espresso/60 max-w-sm">
-                  We&apos;ll have a custom quote in your inbox within 2 hours. Keep an eye on <span className="text-espresso font-medium">{form.email}</span>.
+                  We&apos;ll review your request and send a custom quote to <span className="text-espresso font-medium">{form.email}</span>.
                 </p>
+                {/* TODO: add "check out our menu" or Instagram link once those are ready */}
               </motion.div>
             )}
           </AnimatePresence>

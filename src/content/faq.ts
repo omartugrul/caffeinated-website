@@ -7,7 +7,7 @@ export const faqs: FAQItem[] = [
   {
     question: "How far in advance should I book?",
     answer:
-      "We recommend booking at least 2-3 weeks out, but we can sometimes accommodate shorter timelines. For peak season (October through December), book as early as possible. Those dates fill up fast.",
+      "The sooner the better. Dates fill up and we want to make sure yours is available. If you have an event in mind, get your quote request in now and we'll confirm availability within a few hours.",
   },
   {
     question: "What's included in every package?",
@@ -27,7 +27,7 @@ export const faqs: FAQItem[] = [
   {
     question: "How many drinks can you serve per hour?",
     answer:
-      "Our baristas can serve approximately 60-80 drinks per hour. For larger events, we can add additional baristas to keep the line moving. Nobody waits long for their coffee.",
+      "We build each setup around your guest count so the line keeps moving. When you request a quote, share your headcount and event length and we'll make sure the right capacity is in place.",
   },
   {
     question: "What if I'm not sure which package I need?",

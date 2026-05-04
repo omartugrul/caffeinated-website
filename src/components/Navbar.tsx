@@ -9,7 +9,7 @@ export default function Navbar() {
         </a>
 
         <Button href="#contact" size="sm">
-          Book Your Event
+          Book My Event
         </Button>
       </div>
     </nav>
